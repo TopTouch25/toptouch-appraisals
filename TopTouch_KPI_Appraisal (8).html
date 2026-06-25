@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIlRvcCBUb3VjaCBLUEkgQXBwcmFpc2FsIiwgInNob3J0X25hbWUiOiAiVFQgS1BJIiwgImRlc2NyaXB0aW9uIjogIlRvcCBUb3VjaCBNYXJrZXRpbmcgS1BJIEFwcHJhaXNhbCBTeXN0ZW0iLCAic3RhcnRfdXJsIjogIi4vIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMxQTNDNUUiLCAidGhlbWVfY29sb3IiOiAiIzFBM0M1RSIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWwsPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48cmVjdCB3aWR0aD0nMTAwJyBoZWlnaHQ9JzEwMCcgcng9JzE2JyBmaWxsPSclMjMxQTNDNUUnLz48dGV4dCB5PScuOWVtJyBmb250LXNpemU9JzcwJyB4PSc1MCUnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZvbnQtZmFtaWx5PSdBcmlhbCcgZm9udC13ZWlnaHQ9J2JvbGQnIGZpbGw9J3doaXRlJz5UVDwvdGV4dD48L3N2Zz4iLCAic2l6ZXMiOiAiYW55IiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1A3C5E">
+<meta name="description" content="Top Touch Marketing — KPI Appraisal System for staff performance tracking">
+<title>Top Touch Marketing — KPI Appraisal System</title>
+<style>
+/* System font stack — works fully offline, no internet required */
+:root{
+  --navy:#1A3C5E;--blue:#2E75B6;--blue-lt:#D6E4F0;
+  --self:#1F5C8B;--self-lt:#EBF3FF;
+  --supv:#B84C11;--supv-lt:#FFF0E6;
+  --green:#1E6B2E;--green-lt:#E2EFDA;
+  --amber:#7A5C00;--amber-lt:#FFF9E6;
+  --red:#8B1A1A;--red-lt:#FCE4D6;
+  --grey:#F4F6F9;--border:#CBD5E1;
+  --text:#1E293B;--muted:#64748B;--white:#fff;
+  --r:8px;--sh:0 1px 3px rgba(0,0,0,.10),0 4px 14px rgba(0,0,0,.07);
+}
+*{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#EFF3F8;color:var(--text);font-size:14px;line-height:1.5}
+
+/* ── LOGIN ── */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#0D2135 0%,#1A3C5E 55%,#2563A8 100%)}
+.login-card{background:#fff;border-radius:16px;padding:40px 44px;width:420px;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.login-logo{width:54px;height:54px;background:linear-gradient(135deg,#2E75B6,#1A3C5E);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:21px;color:#fff;margin:0 auto 18px}
+.login-title{text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.login-sub{text-align:center;font-size:12px;color:var(--muted);margin-bottom:26px}
+.lf{margin-bottom:14px}
+.lf label{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+.lf input,.lf select{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:100%;border:1.5px solid var(--border);border-radius:7px;padding:10px 13px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--text);-webkit-transition:border-color .15s;transition:border-color .15s}
+.lf input:focus,.lf select:focus{outline:none;border-color:var(--blue)}
+.login-btn{width:100%;padding:11px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600;cursor:pointer;-webkit-transition:background .15s;transition:background .15s;margin-top:6px}
+.login-btn:hover{background:#254E7A}
+.login-err{color:var(--red);font-size:12px;text-align:center;margin-top:8px;min-height:17px}
+.login-hint{margin-top:14px;padding:11px 14px;background:var(--grey);border-radius:7px;font-size:11px;color:var(--muted);line-height:1.7}
+.login-hint b{color:var(--navy)}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy);color:#fff;padding:0 26px;display:flex;align-items:center;justify-content:space-between;height:54px;position:-webkit-sticky;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.tb-brand{display:flex;align-items:center;gap:10px}
+.tb-logo{width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#2E75B6,#1A3C5E);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:13px;color:#fff;border:1.5px solid rgba(255,255,255,.2)}
+.tb-name{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-weight:600;font-size:14px}
+.tb-sub{font-size:10px;color:#94B8D9;margin-top:-1px}
+.tb-tabs{display:flex;gap:3px}
+.tab-btn{background:transparent;border:none;color:rgba(255,255,255,.58);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:500;padding:6px 13px;border-radius:6px;cursor:pointer;-webkit-transition:all .15s;transition:all .15s}
+.tab-btn:hover,.tab-btn.active{background:rgba(255,255,255,.15);color:#fff}
+.tab-btn.active{background:rgba(255,255,255,.2)}
+.tb-right{display:flex;align-items:center;gap:10px}
+.tb-user{text-align:right}
+.tb-uname{font-size:12px;font-weight:600}
+.tb-urole{font-size:10px;color:#94B8D9}
+.logout-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:5px 11px;border-radius:6px;font-size:12px;cursor:pointer;-webkit-transition:all .15s;transition:all .15s}
+.logout-btn:hover{background:rgba(255,255,255,.2)}
+
+/* ── LAYOUT ── */
+.shell{max-width:1180px;margin:0 auto;padding:22px 18px}
+
+/* ── CARD ── */
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);border:1px solid var(--border);margin-bottom:16px;overflow:hidden}
+.ch{padding:12px 17px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;color:#fff}
+.ch-navy{background:var(--navy)}
+.ch-blue{background:var(--blue)}
+.ch-supv{background:var(--supv)}
+.ch-green{background:var(--green)}
+.ch-amber{background:#B45309}
+.cb{padding:17px}
+
+/* ── FORM FIELDS ── */
+.sel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.55px}
+.field select,.field input[type=text]{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1.5px solid var(--border);border-radius:6px;padding:7px 28px 7px 10px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--text);background:#fff;-webkit-transition:border-color .15s;transition:border-color .15s;width:100%}
+.field select:focus,.field input:focus{outline:none;border-color:var(--blue)}
+.ro{background:var(--grey);color:var(--muted);border:1.5px solid transparent;padding:7px 10px;border-radius:6px;font-size:13px;min-height:34px;display:flex;align-items:center}
+
+/* ── SCORE HERO ── */
+.score-hero{display:flex;gap:12px;margin-bottom:16px}
+.sb{flex:1;border-radius:10px;padding:16px 20px;text-align:center}
+.sb .sv{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:38px;font-weight:700;line-height:1}
+.sb .sl{font-size:10px;text-transform:uppercase;letter-spacing:.7px;margin-top:3px}
+.sb .sr{font-size:12px;font-weight:600;margin-top:6px}
+.sb-supv{background:var(--supv-lt);color:var(--supv)}
+.sb-pct{background:var(--blue-lt);color:var(--navy)}
+.sb-rat{background:var(--green-lt);color:var(--green)}
+.score-locked{background:var(--grey);border:2px dashed var(--border);border-radius:10px;padding:22px;text-align:center;color:var(--muted);margin-bottom:16px}
+.score-locked p{font-size:13px;margin-top:8px}
+
+/* ── KPI TABLE ── */
+table.kt{width:100%;border-collapse:collapse;font-size:12.5px}
+table.kt thead th{background:var(--grey);color:var(--muted);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.45px;padding:8px 10px;border-bottom:2px solid var(--border);text-align:center;white-space:nowrap}
+table.kt thead th.tl{text-align:left}
+table.kt tbody tr{border-bottom:1px solid var(--border)}
+table.kt tbody tr:last-child{border-bottom:none}
+table.kt tbody tr:nth-child(even) td{background:#FAFBFD}
+table.kt td{padding:8px 10px;vertical-align:middle}
+.kpi-n{font-weight:500;max-width:210px;line-height:1.3}
+.wt-c{text-align:center;font-weight:700;color:var(--muted);font-size:12px}
+
+/* ── SCORE BUTTONS ── */
+.pb-row{display:flex;gap:3px;justify-content:center}
+.pb{width:30px;height:26px;border-radius:5px;border:1.5px solid var(--border);background:#fff;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;color:var(--muted);display:flex;align-items:center;justify-content:center}
+.pb:hover{transform:scale(1.08)}
+.pb.self-on{background:var(--self);border-color:var(--self);color:#fff}
+.pb.supv-on{background:var(--supv);border-color:var(--supv);color:#fff}
+.pv{font-size:11px;font-weight:700;margin-top:2px;text-align:center}
+.pv.sv{color:var(--self)}
+.pv.vv{color:var(--supv)}
+.pb-wrap{display:flex;flex-direction:column;align-items:center;gap:2px}
+.prog{height:4px;background:var(--border);border-radius:2px;width:80px;overflow:hidden;margin-top:2px}
+.prog-fill{height:100%;border-radius:2px;-webkit-transition:width .25s;transition:width .25s}
+.pf-s{background:var(--self)}
+.pf-v{background:var(--supv)}
+
+/* ── WTD PILL ── */
+.wp{display:inline-block;padding:2px 7px;border-radius:20px;font-size:11px;font-weight:700}
+.wp-s{background:var(--self-lt);color:var(--self)}
+.wp-v{background:var(--supv-lt);color:var(--supv)}
+
+/* ── NOTES ── */
+textarea.ni{width:100%;border:1.5px solid var(--border);border-radius:5px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:11.5px;color:var(--text);padding:5px 7px;resize:vertical;min-height:42px;-webkit-transition:border-color .15s;transition:border-color .15s}
+textarea.ni:focus{outline:none;border-color:var(--blue)}
+textarea.ni:disabled{background:var(--grey);color:var(--muted);cursor:not-allowed}
+
+/* ── NARRATIVE ── */
+.txt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.txt-block label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.55px;display:block;margin-bottom:4px}
+.txt-block textarea{width:100%;min-height:68px;border:1.5px solid var(--border);border-radius:6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--text);padding:8px 10px;resize:vertical}
+.txt-block textarea:focus{outline:none;border-color:var(--blue)}
+.txt-block textarea:disabled{background:var(--grey);color:var(--muted);cursor:not-allowed}
+
+/* ── BUTTONS ── */
+.btn-row{display:flex;gap:9px;flex-wrap:wrap}
+.btn{padding:8px 18px;border-radius:7px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:none;-webkit-transition:all .15s;transition:all .15s;display:flex;align-items:center;gap:6px}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:#254E7A}
+.btn-success{background:var(--green);color:#fff}.btn-success:hover{background:#155222}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}.btn-outline:hover{background:var(--blue-lt)}
+.btn-danger{background:var(--red);color:#fff}.btn-danger:hover{background:#6B1010}
+.btn-amber{background:#B45309;color:#fff}.btn-amber:hover{background:#92400E}
+.btn-sm{padding:4px 10px;font-size:11.5px}
+
+/* ── RATING BADGE ── */
+.rb{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}
+.r5{background:#E2EFDA;color:#1E6B2E}
+.r4{background:#D6E4F0;color:#1A3C5E}
+.r3{background:#FFF9E6;color:#7A5C00}
+.r2{background:#FFE6CC;color:#A04010}
+.r1{background:var(--red-lt);color:var(--red)}
+
+/* ── DASHBOARD ── */
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.stat-c{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px}
+.stat-c .sv2{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:30px;font-weight:700;color:var(--navy)}
+.stat-c .sl2{font-size:11px;color:var(--muted);margin-top:2px}
+table.dt{width:100%;border-collapse:collapse;font-size:13px}
+table.dt thead th{background:var(--grey);color:var(--muted);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;padding:8px 12px;border-bottom:2px solid var(--border)}
+table.dt tbody tr{border-bottom:1px solid var(--border)}
+table.dt tbody tr:hover{background:#F8FAFC}
+table.dt td{padding:8px 12px;vertical-align:middle}
+.pjb{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.pjb-m{background:#D6E4F0;color:#1A3C5E}
+.pjb-p{background:#FDE9D9;color:#B84C11}
+
+/* ── STAFF MGT ── */
+.smgt-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sl-box{max-height:420px;overflow-y:auto;border:1px solid var(--border);border-radius:7px}
+.sl-box table{width:100%;border-collapse:collapse;font-size:12.5px}
+.sl-box thead th{background:var(--grey);color:var(--muted);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.45px;padding:7px 11px;border-bottom:2px solid var(--border);position:-webkit-sticky;position:sticky;top:0}
+.sl-box tbody tr{border-bottom:1px solid var(--border)}
+.sl-box tbody tr:hover{background:#F8FAFC}
+.sl-box td{padding:7px 11px;vertical-align:middle}
+.add-form-box{background:var(--grey);border-radius:8px;padding:16px}
+.add-form-box h4{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px}
+.add-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+
+/* ── SYNC PANEL ── */
+.sync-box{background:var(--amber-lt);border:1.5px solid #D97706;border-radius:8px;padding:16px;margin-bottom:16px}
+.sync-box h4{font-size:13px;font-weight:600;color:var(--amber);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.sync-box p{font-size:12px;color:#92400E;margin-bottom:10px;line-height:1.6}
+.sync-steps{font-size:12px;color:#78350F;padding-left:16px;margin-bottom:10px}
+.sync-steps li{margin-bottom:4px}
+
+/* ── FILTER BAR ── */
+.filter-bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.filter-bar select,.filter-bar input{border:1.5px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:var(--text);background:#fff}
+.filter-bar input{width:190px}
+
+/* ── ACCESS DENIED ── */
+.access-denied{text-align:center;padding:44px 20px;color:var(--muted)}
+.access-denied svg{opacity:.25;margin-bottom:10px}
+.access-denied h3{font-size:15px;color:var(--navy);margin-bottom:5px}
+
+/* ── ROLE PILL ── */
+.rp{display:inline-flex;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}
+.rp-staff{background:#E2EFDA;color:#1E6B2E}
+.rp-tl{background:var(--supv-lt);color:var(--supv)}
+.rp-pm{background:var(--blue-lt);color:var(--navy)}
+.rp-admin{background:#EDE9FE;color:#4C1D95}
+
+.hidden{display:none!important}
+.section-tab{}
+.divider{height:1px;background:var(--border);margin:14px 0}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;padding:10px 17px;border-radius:8px;font-size:13px;font-weight:500;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:9999;opacity:0;-webkit-transition:opacity .3s;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.toast.ok{background:var(--green)}
+.toast.warn{background:#B45309}
+.toast.err{background:var(--red)}
+
+/* ── INFO BOX ── */
+.info-box{border-radius:7px;padding:12px 14px;font-size:12px;line-height:1.6}
+.ib-blue{background:var(--blue-lt);color:var(--navy);border-left:3px solid var(--blue)}
+.ib-amber{background:var(--amber-lt);color:var(--amber);border-left:3px solid #D97706}
+.ib-green{background:var(--green-lt);color:var(--green);border-left:3px solid var(--green)}
+
+@media print{.topbar,.btn-row,.sync-box{display:none!important}.card{box-shadow:none;border:1px solid #ccc}body{background:#fff}}
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px){
+  .shell{ padding:12px 10px; }
+  .sel-grid{ grid-template-columns:1fr 1fr; gap:10px; }
+  .txt-grid{ grid-template-columns:1fr; }
+  .smgt-grid{ grid-template-columns:1fr; }
+  .dash-grid{ grid-template-columns:1fr 1fr; gap:10px; }
+  .score-hero{ flex-direction:column; gap:10px; }
+  .tb-tabs{ display:none; }
+  .tb-brand .tb-sub{ display:none; }
+  .topbar{ height:auto; padding:10px 14px; flex-wrap:wrap; gap:8px; }
+  .tb-right{ width:100%; justify-content:space-between; }
+  .login-card{ width:95%; padding:28px 20px; margin:12px; }
+  table.kt, table.dt{ font-size:11px; }
+  table.kt td, table.dt td{ padding:6px 6px; }
+  .pb{ width:26px; height:24px; font-size:10px; }
+  .filter-bar{ flex-direction:column; align-items:stretch; }
+  .filter-bar input, .filter-bar select{ width:100%; }
+  .btn-row{ flex-wrap:wrap; }
+  .btn{ font-size:12px; padding:8px 14px; }
+  .card{ margin-bottom:12px; }
+  .txt-block textarea{ min-height:60px; }
+  .sl-box{ max-height:280px; }
+  .sync-box{ padding:12px; }
+  .sync-steps{ padding-left:12px; }
+  /* Mobile tab bar at bottom */
+  .mobile-nav{ display:flex!important; }
+}
+@media (max-width: 480px){
+  .sel-grid{ grid-template-columns:1fr; }
+  .dash-grid{ grid-template-columns:1fr 1fr; }
+  .score-hero .sb .sv{ font-size:28px; }
+  .tb-logo{ width:28px; height:28px; font-size:11px; }
+  .tb-name{ font-size:13px; }
+  table.kt thead th{ font-size:9px; padding:6px 4px; }
+  .kpi-n{ max-width:120px; font-size:11px; }
+}
+
+/* ── MOBILE BOTTOM NAV ── */
+.mobile-nav{
+  display:none;
+  position:fixed;
+  bottom:0; left:0; right:0;
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,.15);
+  z-index:300;
+  padding:6px 0 env(safe-area-inset-bottom, 6px);
+}
+.mobile-nav-btn{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  background:none;
+  border:none;
+  color:rgba(255,255,255,.55);
+  font-size:9px;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-weight:500;
+  cursor:pointer;
+  padding:6px 2px;
+  -webkit-tap-highlight-color:transparent;
+  transition:color .15s;
+}
+.mobile-nav-btn.active, .mobile-nav-btn:active{ color:#fff; }
+.mobile-nav-btn svg{ opacity:.7; }
+.mobile-nav-btn.active svg{ opacity:1; }
+
+/* Touch-friendly tap targets */
+.pb{ min-width:32px; min-height:32px; }
+.btn{ min-height:40px; }
+.field select, .field input[type=text]{ min-height:40px; }
+.lf input, .lf select{ min-height:44px; }
+
+/* Prevent text size adjustment on mobile */
+body{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+
+/* Safe area for notched phones */
+.topbar{ padding-left:max(26px, env(safe-area-inset-left)); padding-right:max(26px, env(safe-area-inset-right)); }
+.shell{ padding-bottom:calc(12px + env(safe-area-inset-bottom, 0px)); }
+
+</style>
+</head>
+<body><div id="offline-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9999;background:#B45309;color:#fff;padding:8px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;font-weight:500;align-items:center;gap:10px;justify-content:center;">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+  You are offline — all data is saved locally and will sync when reconnected.
+</div>
+
+<!-- ══════════════ LOGIN ══════════════ -->
+<div id="login-screen">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">TT</div>
+      <div class="login-title">Top Touch Marketing</div>
+      <div class="login-sub">KPI Appraisal System — Sign In</div>
+      <div class="lf">
+        <label>Project</label>
+        <select id="li-project" onchange="populateLoginStaff()">
+          <option value="">— Select your project —</option>
+          <option value="MOVIT">MOVIT</option>
+          <option value="PRK MT">PRK MT</option>
+          <option value="KWAL TDR">KWAL TDR</option>
+          <option value="SUNDRIES">SUNDRIES</option>
+          <option value="UNGA">UNGA</option>
+          <option value="LG">LG</option>
+          <option value="DP WORLD">DP WORLD</option>
+          <option value="CDL">CDL</option>
+          <option value="HR & ADMIN">HR & ADMIN</option>
+          <option value="OFFICE SUPPORT">OFFICE SUPPORT</option>
+          <option value="FINANCE">FINANCE</option>
+          <option value="BRANDING & CREATIVE">BRANDING & CREATIVE</option>
+          <option value="DATA/IT/PROCUREMENT">DATA/IT/PROCUREMENT</option>
+          <option value="PM ACTIVATIONS">PM ACTIVATIONS</option>
+          <option value="ADMIN">Admin / Management</option>
+        </select>
+      </div>
+      <div class="lf" id="li-staff-wrap" style="display:none">
+        <label>Your Name (Staff)</label>
+        <select id="li-staff">
+          <option value="">— Select your name —</option>
+        </select>
+      </div>
+      <div class="lf">
+        <label>Payroll Number / PIN</label>
+        <input type="password" id="li-pin" placeholder="Enter your payroll number" onkeydown="if(event.key==='Enter') doLogin()">
+      </div>
+      <button class="login-btn" onclick="doLogin()">Sign In</button>
+      <div class="login-err" id="li-err"></div>
+      <div class="login-hint">
+        <b>How to log in:</b> Select your project, choose your name from the list, then enter your payroll number as your PIN.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MAIN APP ══════════════ -->
+<div id="main-app" class="hidden">
+
+  <div class="topbar">
+    <div class="tb-brand">
+      <div class="tb-logo">TT</div>
+      <div>
+        <div class="tb-name">Top Touch Marketing</div>
+        <div class="tb-sub">KPI Appraisal System</div>
+      </div>
+    </div>
+    <div class="tb-tabs" id="nav-tabs">
+      <button class="tab-btn active" data-sec="appraisal" onclick="showSec('appraisal')">My Appraisal</button>
+      <button class="tab-btn hidden" data-sec="team" onclick="showSec('team')" id="tab-team">My Team</button>
+      <button class="tab-btn hidden" data-sec="dashboard" onclick="showSec('dashboard')" id="tab-dashboard">Dashboard</button>
+      <button class="tab-btn hidden" data-sec="staff-mgt" onclick="showSec('staff-mgt')" id="tab-staffmgt">Staff Management</button>
+      <button class="tab-btn hidden" data-sec="sync" onclick="showSec('sync')" id="tab-sync">Data Sync</button>
+    </div>
+    <div class="tb-right">
+      <div class="tb-user">
+        <div class="tb-uname" id="ui-name"></div>
+        <div class="tb-urole" id="ui-role-disp"></div>
+      </div>
+      <button class="logout-btn" onclick="doLogout()">Sign Out</button>
+    </div>
+  </div>
+
+  <!-- ══ SELF APPRAISAL ══ -->
+  <div id="sec-appraisal" class="shell section-tab" style="padding-bottom:80px">
+    <div class="card">
+      <div class="ch ch-blue">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Self-Assessment — <span id="self-staff-name" style="margin-left:4px;opacity:.8"></span>
+      </div>
+      <div class="cb">
+        <div class="sel-grid">
+          <div class="field"><label>Name</label><div class="ro" id="sa-name">—</div></div>
+          <div class="field"><label>Payroll No</label><div class="ro" id="sa-payno">—</div></div>
+          <div class="field"><label>Role</label><div class="ro" id="sa-role">—</div></div>
+          <div class="field"><label>Project</label><div class="ro" id="sa-project">—</div></div>
+          <div class="field" id="sa-supv-wrap" style="display:none">
+            <label>Supervisor</label>
+            <div class="ro" id="sa-supv">—</div>
+          </div>
+          <div class="field">
+            <label>Appraisal Period</label>
+            <select id="sa-period">
+              <option value="Q1 2026 (Jan–Mar)">Q1 2026 (Jan–Mar)</option>
+              <option value="Q2 2026 (Apr–Jun)" selected>Q2 2026 (Apr–Jun)</option>
+              <option value="Q3 2026 (Jul–Sep)">Q3 2026 (Jul–Sep)</option>
+              <option value="Q4 2026 (Oct–Dec)">Q4 2026 (Oct–Dec)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box ib-blue" style="margin-bottom:14px">
+      <strong>Self-Assessment Instructions:</strong> Rate yourself on each KPI from 1–5 (1=20%, 2=40%, 3=60%, 4=80%, 5=100%). Add notes to explain your rating. Your supervisor will review and score you separately. <strong>Your final appraisal score is set by your supervisor only.</strong>
+    </div>
+
+    <!-- Self score summary -->
+    <div class="score-hero" id="self-score-hero" style="display:none;margin-bottom:16px">
+      <div class="sb" style="background:var(--self-lt);color:var(--self)">
+        <div class="sv" id="self-hero-pct">0%</div>
+        <div class="sl">My Self-Assessment Score</div>
+        <div class="sr" id="self-hero-rat"></div>
+      </div>
+      <div class="sb" style="background:var(--grey);color:var(--navy);flex:0.85">
+        <div class="sv" style="font-size:20px;line-height:1.3" id="self-hero-grade">—</div>
+        <div class="sl">Self Rating</div>
+        <div class="sr" style="font-size:11px;color:var(--muted)">Supervisor score is final</div>
+      </div>
+      <div class="sb" style="background:var(--amber-lt);color:var(--amber);flex:0.75">
+        <div class="sv" style="font-size:24px" id="self-hero-scored">0 / 0</div>
+        <div class="sl">KPIs Rated</div>
+        <div class="sr" id="self-hero-remaining" style="font-size:11px"></div>
+      </div>
+    </div>
+
+    <div class="card" id="self-kpi-card">
+      <div class="ch ch-navy" id="self-kpi-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="12" y2="15"/></svg>
+        KPI Self-Assessment
+      </div>
+      <table class="kt">
+        <thead>
+          <tr>
+            <th style="width:30px">#</th>
+            <th class="tl">KPI Description</th>
+            <th style="width:56px">Weight</th>
+            <th style="width:150px;background:var(--self-lt);color:var(--self)">Self Score (1–5)</th>
+            <th style="width:65px;background:var(--self-lt);color:var(--self)">Score %</th>
+            <th style="width:65px;background:var(--self-lt);color:var(--self)">Wtd %</th>
+            <th style="background:var(--self-lt);color:var(--self)">Your Notes</th>
+          </tr>
+        </thead>
+        <tbody id="self-kpi-tbody"></tbody>
+      </table>
+      <div style="padding:10px 13px;background:var(--grey);border-top:1px solid var(--border);font-size:11px;color:var(--muted)">
+        Score guide: 1=20% &nbsp;|&nbsp; 2=40% &nbsp;|&nbsp; 3=60% &nbsp;|&nbsp; 4=80% &nbsp;|&nbsp; 5=100% &nbsp;|&nbsp; Weighted % = Score% × KPI Weight
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ch ch-blue">Self-Reflection Notes <span style="font-size:11px;opacity:.8;font-weight:400">— all fields required to submit</span></div>
+      <div class="cb">
+        <div class="txt-grid">
+          <div class="txt-block">
+            <label>What went well this period? <span style="color:#B84C11">*</span></label>
+            <textarea id="self-txt-well" placeholder="Describe your key achievements and strengths…"></textarea>
+          </div>
+          <div class="txt-block">
+            <label>What could you improve? <span style="color:#B84C11">*</span></label>
+            <textarea id="self-txt-improve" placeholder="Areas where you feel you could do better…"></textarea>
+          </div>
+          <div class="txt-block" style="grid-column:1/-1">
+            <label>Development or support you need <span style="color:#B84C11">*</span></label>
+            <textarea id="self-txt-support" placeholder="Training, resources, or support that would help you perform better…" style="min-height:52px"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row" style="margin-bottom:26px">
+      <button class="btn btn-success" onclick="saveSelfAppraisal()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save Self-Assessment
+      </button>
+      <button class="btn btn-primary" onclick="exportMyData()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export My Data
+      </button>
+      <button class="btn btn-outline" onclick="window.print()">Print</button>
+    </div>
+  </div>
+
+  <!-- ══ TEAM APPRAISAL (Team Leader / PM / Admin) ══ -->
+  <div id="sec-team" class="shell section-tab hidden">
+    <div class="card">
+      <div class="ch ch-supv">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Team KPI Scoring
+      </div>
+      <div class="cb">
+        <div class="sel-grid">
+          <div class="field">
+            <label>Project</label>
+            <select id="tm-project" onchange="onTmProjectChange()">
+              <option value="">— Select Project —</option>
+              <option value="MOVIT">MOVIT</option>
+              <option value="PRK MT">PRK MT</option>
+              <option value="KWAL TDR">KWAL TDR</option>
+              <option value="SUNDRIES">SUNDRIES</option>
+              <option value="UNGA">UNGA</option>
+              <option value="LG">LG</option>
+              <option value="DP WORLD">DP WORLD</option>
+              <option value="CDL">CDL</option>
+              <option value="HR & ADMIN">HR & ADMIN</option>
+              <option value="OFFICE SUPPORT">OFFICE SUPPORT</option>
+              <option value="FINANCE">FINANCE</option>
+              <option value="BRANDING & CREATIVE">BRANDING & CREATIVE</option>
+              <option value="DATA/IT/PROCUREMENT">DATA/IT/PROCUREMENT</option>
+              <option value="PM ACTIVATIONS">PM ACTIVATIONS</option>
+              <option value="KWAL TDR">KWAL TDR</option>
+              <option value="SUNDRIES">SUNDRIES</option>
+              <option value="UNGA">UNGA</option>
+              <option value="LG">LG</option>
+              <option value="DP WORLD">DP WORLD</option>
+              <option value="CDL">CDL</option>
+              <option value="HR & ADMIN">HR & ADMIN</option>
+              <option value="OFFICE SUPPORT">OFFICE SUPPORT</option>
+              <option value="FINANCE">FINANCE</option>
+              <option value="BRANDING & CREATIVE">BRANDING & CREATIVE</option>
+              <option value="DATA/IT/PROCUREMENT">DATA/IT/PROCUREMENT</option>
+              <option value="PM ACTIVATIONS">PM ACTIVATIONS</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Staff Member</label>
+            <select id="tm-staff" onchange="onTmStaffChange()" disabled>
+              <option value="">— Select Project First —</option>
+            </select>
+          </div>
+          <div class="field"><label>Payroll No</label><div class="ro" id="tm-payno">—</div></div>
+          <div class="field"><label>Role</label><div class="ro" id="tm-role">—</div></div>
+          <div class="field"><label>Period</label>
+            <select id="tm-period">
+              <option value="Q1 2026 (Jan–Mar)">Q1 2026 (Jan–Mar)</option>
+              <option value="Q2 2026 (Apr–Jun)" selected>Q2 2026 (Apr–Jun)</option>
+              <option value="Q3 2026 (Jul–Sep)">Q3 2026 (Jul–Sep)</option>
+              <option value="Q4 2026 (Oct–Dec)">Q4 2026 (Oct–Dec)</option>
+            </select>
+          </div>
+          <div class="field"><label>Supervisor</label><input type="text" id="tm-supv" placeholder="Your name"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score hero — visible to supervisors -->
+    <div id="tm-score-hero" class="hidden">
+      <div class="score-hero">
+        <div class="sb sb-supv">
+          <div class="sv" id="tm-sh-pct">—</div>
+          <div class="sl">Supervisor Score</div>
+          <div class="sr" id="tm-sh-rat"></div>
+        </div>
+        <div class="sb sb-pct">
+          <div class="sv" id="tm-sh-wtd">—</div>
+          <div class="sl">Weighted Total %</div>
+          <div class="sr">Out of 100%</div>
+        </div>
+        <div class="sb sb-rat">
+          <div class="sv" style="font-size:24px" id="tm-sh-grade">—</div>
+          <div class="sl">Performance Rating</div>
+          <div class="sr" id="tm-sh-badge"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tm-kpi-area" class="hidden">
+      <div class="card">
+        <div class="ch ch-supv" id="tm-kpi-header">Supervisor KPI Scoring — <span id="tm-kpi-title" style="margin-left:4px;opacity:.85"></span></div>
+        <table class="kt">
+          <thead>
+            <tr>
+              <th style="width:30px">#</th>
+              <th class="tl">KPI Description</th>
+              <th style="width:56px">Weight</th>
+              <th style="width:150px;background:var(--supv-lt);color:var(--supv)">Supervisor Score</th>
+              <th style="width:65px;background:var(--supv-lt);color:var(--supv)">Score %</th>
+              <th style="width:65px;background:var(--supv-lt);color:var(--supv)">Wtd %</th>
+              <th style="width:65px;background:var(--self-lt);color:var(--self)">Self %</th>
+              <th style="background:var(--supv-lt);color:var(--supv)">Supervisor Notes</th>
+            </tr>
+          </thead>
+          <tbody id="tm-kpi-tbody"></tbody>
+        </table>
+        <div style="padding:10px 13px;background:var(--grey);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+          <span style="font-size:11px;color:var(--muted)">Score: 1=20% | 2=40% | 3=60% | 4=80% | 5=100% &nbsp;|&nbsp; Wtd % = Score% × Weight</span>
+          <span style="font-weight:700;color:var(--supv);font-size:12px">Total: <span id="tm-total-val">0.0%</span></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="ch ch-blue">Supervisor Narrative Assessment <span style="font-size:11px;opacity:.8;font-weight:400">— all fields required to submit</span></div>
+        <div class="cb">
+          <div class="txt-grid">
+            <div class="txt-block">
+              <label>Key Strengths Observed <span style="color:#B84C11">*</span></label>
+              <textarea id="tm-txt-strengths" placeholder="Note key strengths demonstrated…"></textarea>
+            </div>
+            <div class="txt-block">
+              <label>Areas for Improvement <span style="color:#B84C11">*</span></label>
+              <textarea id="tm-txt-improve" placeholder="Areas requiring development…"></textarea>
+            </div>
+            <div class="txt-block">
+              <label>Agreed Development Actions <span style="color:#B84C11">*</span></label>
+              <textarea id="tm-txt-actions" placeholder="Specific actions, training, or support agreed…"></textarea>
+            </div>
+            <div class="txt-block">
+              <label>Additional Remarks <span style="color:#B84C11">*</span></label>
+              <textarea id="tm-txt-remarks" placeholder="Any additional observations…"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-bottom:26px">
+        <button class="btn btn-success" onclick="saveTeamAppraisal()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Supervisor Score
+        </button>
+        <button class="btn btn-primary" onclick="exportMyData()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export My Data
+        </button>
+        <button class="btn btn-outline" onclick="clearTeamForm()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD ══ -->
+  <div id="sec-dashboard" class="shell section-tab hidden">
+    <div id="dash-deny" class="hidden card"><div class="cb access-denied">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <h3>Access Restricted</h3><p>Dashboard is available to Team Leaders, Project Managers, and Admin only.</p>
+    </div></div>
+    <div id="dash-content">
+      <div class="dash-grid">
+        <div class="stat-c"><div class="sv2" id="ds-total">0</div><div class="sl2">Total Appraisals</div></div>
+        <div class="stat-c"><div class="sv2" id="ds-avg" style="color:var(--supv)">—</div><div class="sl2">Avg Supervisor Score</div></div>
+        <div class="stat-c"><div class="sv2" id="ds-top" style="color:var(--green)">—</div><div class="sl2">Top Score</div></div>
+        <div class="stat-c"><div class="sv2" id="ds-below" style="color:var(--red)">0</div><div class="sl2">Below 60%</div></div>
+      </div>
+      <div class="card">
+        <div class="ch ch-navy">All Appraisals</div>
+        <div class="cb">
+          <div id="dash-filter-bar" class="filter-bar">
+            <input type="text" id="flt-search" placeholder="Search name…" oninput="renderDash()">
+            <select id="flt-proj" onchange="renderDash()">
+              <option value="">All Projects</option>
+              <option value="MOVIT">MOVIT</option>
+              <option value="PRK MT">PRK MT</option>
+              <option value="KWAL TDR">KWAL TDR</option>
+              <option value="SUNDRIES">SUNDRIES</option>
+              <option value="UNGA">UNGA</option>
+              <option value="LG">LG</option>
+              <option value="DP WORLD">DP WORLD</option>
+              <option value="CDL">CDL</option>
+              <option value="HR & ADMIN">HR & ADMIN</option>
+              <option value="OFFICE SUPPORT">OFFICE SUPPORT</option>
+              <option value="FINANCE">FINANCE</option>
+              <option value="BRANDING & CREATIVE">BRANDING & CREATIVE</option>
+              <option value="DATA/IT/PROCUREMENT">DATA/IT/PROCUREMENT</option>
+              <option value="PM ACTIVATIONS">PM ACTIVATIONS</option>
+            </select>
+            <select id="flt-role" onchange="renderDash()">
+              <option value="">All Roles</option>
+              <option value="Merchandiser">Merchandiser</option>
+              <option value="Team Leader">Team Leader</option>
+              <option value="Project Manager">Project Manager</option>
+              <option value="Order Booker">Order Booker</option>
+              <option value="TDR">TDR</option>
+              <option value="Promoter">Promoter</option>
+              <option value="Data Analyst">Data Analyst</option>
+              <option value="CDL Activation">CDL Activation</option>
+              <option value="CDL General Trade">CDL General Trade</option>
+              <option value="CDL Modern Trade">CDL Modern Trade</option>
+              <option value="HR Assistant">HR Assistant</option>
+              <option value="HR Manager">HR Manager</option>
+              <option value="Finance Assistant">Finance Assistant</option>
+              <option value="Finance Manager">Finance Manager</option>
+              <option value="Data Officer">Data Officer</option>
+              <option value="PM Activations">PM Activations</option>
+            </select>
+            <select id="flt-period" onchange="renderDash()">
+              <option value="">All Quarters</option>
+              <option value="Q1 2026 (Jan–Mar)">Q1 2026</option>
+              <option value="Q2 2026 (Apr–Jun)">Q2 2026</option>
+              <option value="Q3 2026 (Jul–Sep)">Q3 2026</option>
+              <option value="Q4 2026 (Oct–Dec)">Q4 2026</option>
+            </select>
+            <select id="flt-status" onchange="renderDash()">
+              <option value="">All Status</option>
+              <option value="complete">Both Scores</option>
+              <option value="self-only">Self Only</option>
+              <option value="supv-only">Supv Only</option>
+            </select>
+            <button class="btn btn-outline btn-sm" onclick="showView('table')" id="btn-view-table" style="margin-left:auto">Table</button>
+            <button class="btn btn-primary btn-sm" onclick="showView('trends')" id="btn-view-trends">Trends</button>
+            <button class="btn btn-danger btn-sm" onclick="clearAll()">Clear All</button>
+          </div>
+          <table class="dt">
+            <thead><tr>
+              <th>Name</th><th>Project</th><th>Role</th><th>Period</th><th>Self %</th><th>Supv %</th><th>Rating</th><th>Status</th><th>Actions</th>
+            </tr></thead>
+            <tbody id="dash-tbody"></tbody>
+          </table>
+          <div id="dash-empty" class="hidden" style="text-align:center;padding:32px;color:var(--muted);font-size:13px">No appraisals yet. Import data files or save appraisals to see records.</div>
+        </div>
+      </div>
+
+      <!-- ── QUARTER COMPARISON CARDS (admin only) ── -->
+      <div id="quarter-cards" class="hidden">
+        <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px">Quarter Comparison</div>
+        <div id="quarter-cards-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px"></div>
+      </div>
+
+      <!-- ── QUARTER TRENDS TABLE (admin only) ── -->
+      <div id="trends-section" class="card hidden">
+        <div class="ch ch-navy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Quarter-on-Quarter Trends — Staff Performance
+        </div>
+        <div style="padding:0;overflow-x:auto">
+          <table class="dt" id="trends-table">
+            <thead id="trends-thead"></thead>
+            <tbody id="trends-tbody"></tbody>
+          </table>
+          <div id="trends-empty" class="hidden" style="text-align:center;padding:32px;color:var(--muted);font-size:13px">No multi-quarter data yet. Records from multiple quarters will appear here for comparison.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ STAFF MANAGEMENT ══ -->
+  <div id="sec-staff-mgt" class="shell section-tab hidden">
+    <div class="card">
+      <div class="ch ch-green">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Staff Management
+      </div>
+      <div class="cb">
+        <div style="margin-bottom:12px;display:flex;gap:10px;align-items:center">
+          <select id="smt-proj" onchange="renderStaffMgt()" style="border:1.5px solid var(--border);border-radius:6px;padding:6px 10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:13px">
+            <option value="MOVIT">MOVIT</option>
+            <option value="PRK MT">PRK MT</option>
+            <option value="KWAL TDR">KWAL TDR</option>
+            <option value="SUNDRIES">SUNDRIES</option>
+            <option value="UNGA">UNGA</option>
+            <option value="LG">LG</option>
+            <option value="DP WORLD">DP WORLD</option>
+            <option value="CDL">CDL</option>
+            <option value="HR & ADMIN">HR & ADMIN</option>
+            <option value="OFFICE SUPPORT">OFFICE SUPPORT</option>
+            <option value="FINANCE">FINANCE</option>
+            <option value="BRANDING & CREATIVE">BRANDING & CREATIVE</option>
+            <option value="DATA/IT/PROCUREMENT">DATA/IT/PROCUREMENT</option>
+            <option value="PM ACTIVATIONS">PM ACTIVATIONS</option>
+          </select>
+          <span id="smt-count" style="font-size:12px;color:var(--muted)"></span>
+        </div>
+        <div class="smgt-grid">
+          <div>
+            <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:7px">Current Staff</div>
+            <div class="sl-box">
+              <table>
+                <thead><tr><th>Payroll No</th><th>Name</th><th>Role</th><th></th></tr></thead>
+                <tbody id="smt-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="add-form-box">
+              <h4>Add New Staff Member</h4>
+              <div class="add-grid">
+                <div class="field"><label>Payroll No</label><input type="text" id="add-payno" placeholder="e.g. MOV055"></div>
+                <div class="field"><label>Full Name</label><input type="text" id="add-name" placeholder="Full name"></div>
+                <div class="field">
+                  <label>Project</label>
+                  <select id="add-proj">
+                    <option value="MOVIT">MOVIT</option>
+                    <option value="PRK MT">PRK MT</option>
+                    <option value="KWAL TDR">KWAL TDR</option>
+                    <option value="SUNDRIES">SUNDRIES</option>
+                    <option value="UNGA">UNGA</option>
+                    <option value="LG">LG</option>
+                    <option value="DP WORLD">DP WORLD</option>
+                    <option value="CDL">CDL</option>
+                    <option value="HR & ADMIN">HR & ADMIN</option>
+                    <option value="OFFICE SUPPORT">OFFICE SUPPORT</option>
+                    <option value="FINANCE">FINANCE</option>
+                    <option value="BRANDING & CREATIVE">BRANDING & CREATIVE</option>
+                    <option value="DATA/IT/PROCUREMENT">DATA/IT/PROCUREMENT</option>
+                    <option value="PM ACTIVATIONS">PM ACTIVATIONS</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Designation</label>
+                  <select id="add-role">
+                    <option value="Merchandiser">Merchandiser</option>
+                    <option value="Team Leader">Team Leader</option>
+                    <option value="Project Manager">Project Manager</option>
+                    <option value="Order Booker">Order Booker</option>
+                    <option value="TDR">TDR</option>
+                    <option value="Promoter">Promoter</option>
+                    <option value="Data Analyst">Data Analyst</option>
+                    <option value="PM Activations">PM Activations</option>
+                    <option value="HR Assistant">HR Assistant</option>
+                    <option value="HR Manager">HR Manager</option>
+                    <option value="Finance Assistant">Finance Assistant</option>
+                    <option value="Finance Manager">Finance Manager</option>
+                    <option value="Data Officer">Data Officer</option>
+                    <option value="Data/IT/Procurement Manager">Data/IT/Procurement Manager</option>
+                    <option value="Company Driver">Company Driver</option>
+                    <option value="Support Staff">Support Staff</option>
+                    <option value="Office Catering & Facilities Assistant">Office Catering & Facilities Assistant</option>
+                    <option value="Branding and Printing Manager">Branding and Printing Manager</option>
+                    <option value="Digital Content & Creative Specialist">Digital Content & Creative Specialist</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-success" onclick="addStaff()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add Staff Member
+              </button>
+            </div>
+            <div class="info-box ib-amber" style="margin-top:12px">
+              <strong>Note:</strong> Staff added here are saved in this browser. Use the Data Sync tab to export and merge data across devices.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DATA SYNC ══ -->
+  <div id="sec-sync" class="shell section-tab hidden">
+    <!-- Export-only view: Staff, Merchandisers, Team Leaders -->
+    <div id="sync-export-only">
+      <div class="sync-box">
+        <h4>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Sharing Your Data
+        </h4>
+        <p>Once you have completed and saved your appraisal, export your data and send the file to your manager or admin for consolidation.</p>
+        <ol class="sync-steps">
+          <li>Complete your self-assessment and click <strong>Save Self-Assessment</strong>.</li>
+          <li>Click <strong>Export My Data</strong> below to download your data as a file.</li>
+          <li>Send the file to your manager via WhatsApp, email, or shared Google Drive.</li>
+        </ol>
+      </div>
+      <div class="card" style="max-width:480px">
+        <div class="ch ch-blue">Export Your Data</div>
+        <div class="cb">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Download your saved appraisal as a JSON file to send to your manager or admin.</p>
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="exportMyData()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export My Data (JSON)
+            </button>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted)" id="export-count"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full admin/PM view: Export + Import + Danger Zone -->
+    <div id="sync-admin-only" class="hidden">
+      <div class="sync-box">
+        <h4>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          How Data Collection Works
+        </h4>
+        <p>Each person's data lives in <strong>their own browser</strong>. Collect everyone's files and import them here to build the master view.</p>
+        <ol class="sync-steps">
+          <li>Each staff member saves their self-assessment and exports a JSON file.</li>
+          <li>Each Team Leader saves their team scores and exports their file.</li>
+          <li>You collect all files (WhatsApp / email / Google Drive) and import them below.</li>
+          <li>The Dashboard then shows all combined scores in one place.</li>
+        </ol>
+        <div class="info-box ib-green" style="margin-top:8px">
+          <strong>Tip:</strong> You can import multiple files at once — select them all in one go. Duplicate records are automatically merged.
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="card">
+          <div class="ch ch-blue">Export Your Data</div>
+          <div class="cb">
+            <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Download all your saved records as a JSON file.</p>
+            <div class="btn-row">
+              <button class="btn btn-primary" onclick="exportMyData()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export My Data (JSON)
+              </button>
+            </div>
+            <div style="margin-top:10px;font-size:11px;color:var(--muted)" id="export-count"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch ch-green">Import Data File(s)</div>
+          <div class="cb">
+            <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Select one or more exported JSON files to merge into this session.</p>
+            <input type="file" id="import-file" accept=".json" multiple style="display:none" onchange="importDataFiles()">
+            <div class="btn-row">
+              <button class="btn btn-success" onclick="document.getElementById('import-file').click()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Select Files to Import
+              </button>
+            </div>
+            <div style="margin-top:10px;font-size:11px;color:var(--muted)" id="import-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:4px">
+        <div class="ch ch-amber">Danger Zone</div>
+        <div class="cb" style="display:flex;align-items:center;gap:16px">
+          <div style="flex:1;font-size:13px;color:var(--muted)">Permanently delete all appraisal records from this browser. Cannot be undone.</div>
+          <button class="btn btn-danger" onclick="clearAll()">Clear All Records</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ══ MOBILE BOTTOM NAV ══ -->
+<nav class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-btn active" data-sec="appraisal" onclick="mobileNav('appraisal',this)" id="mnav-appraisal">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    My Form
+  </button>
+  <button class="mobile-nav-btn hidden" data-sec="team" onclick="mobileNav('team',this)" id="mnav-team">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+    Team
+  </button>
+  <button class="mobile-nav-btn hidden" data-sec="dashboard" onclick="mobileNav('dashboard',this)" id="mnav-dashboard">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    Dashboard
+  </button>
+  <button class="mobile-nav-btn hidden" data-sec="staff-mgt" onclick="mobileNav('staff-mgt',this)" id="mnav-staff-mgt">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+    Staff
+  </button>
+  <button class="mobile-nav-btn" data-sec="sync" onclick="mobileNav('sync',this)" id="mnav-sync">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+    Sync
+  </button>
+</nav>
+
+</div><!-- /main-app -->
+<div class="toast" id="toast"></div>
+<input type="file" id="hidden-import" accept=".json" multiple style="display:none" onchange="importDataFiles()">
+
+<script>
+// ════════════════════════════════════════════════════════
+// SAFE HELPERS — crash-proof DOM + storage
+// ════════════════════════════════════════════════════════
+function $id(id){ return document.getElementById(id); }
+function safeVal(id,fallback){
+  try{ var el=$id(id); return el?(el.value!==undefined?el.value:el.textContent)||fallback:fallback; }catch(e){ return fallback; }
+}
+function safeSet(id,prop,val){
+  try{ var el=$id(id); if(el) el[prop]=val; }catch(e){}
+}
+function safeText(id,val){
+  try{ var el=$id(id); if(el) el.textContent=val; }catch(e){}
+}
+function safeHTML(id,val){
+  try{ var el=$id(id); if(el) el.innerHTML=val; }catch(e){}
+}
+function safeStyle(id,prop,val){
+  try{ var el=$id(id); if(el) el.style[prop]=val; }catch(e){}
+}
+function safeClass(id,action,cls){
+  try{ var el=$id(id); if(el) el.classList[action](cls); }catch(e){}
+}
+function safeShow(id){ safeStyle(id,'display',''); }
+function safeHide(id){ safeStyle(id,'display','none'); }
+function safeFlex(id){ safeStyle(id,'display','flex'); }
+
+// Safe localStorage — works in private/incognito mode too
+var _store = {};
+var _storageAvailable = (function(){
+  try{ localStorage.setItem('_t','1'); localStorage.removeItem('_t'); return true; }catch(e){ return false; }
+})();
+function lsGet(key){
+  try{
+    if(_storageAvailable) return localStorage.getItem(key);
+    return _store[key]||null;
+  }catch(e){ return _store[key]||null; }
+}
+function lsSet(key,val){
+  try{
+    if(_storageAvailable) localStorage.setItem(key,val);
+    else _store[key]=val;
+  }catch(e){ _store[key]=val; }
+}
+function lsRemove(key){
+  try{
+    if(_storageAvailable) localStorage.removeItem(key);
+    else delete _store[key];
+  }catch(e){ delete _store[key]; }
+}
+
+// Global error handler — shows a user-friendly message instead of white screen
+window.onerror = function(msg,src,line,col,err){
+  console.error('KPI App Error:',msg,'at',src+':'+line,err);
+  var toast = $id('toast');
+  if(toast){
+    toast.textContent = 'Something went wrong. Please refresh the page.';
+    toast.className = 'toast err show';
+    setTimeout(function(){ toast.classList.remove('show'); }, 5000);
+  }
+  return false; // don't suppress
+};
+window.onunhandledrejection = function(e){
+  console.error('Unhandled promise rejection:', e.reason);
+};
+
+// ════════════════════════════════════════════════════════
+// SECURITY — XSS sanitisation
+// ════════════════════════════════════════════════════════
+// Escape HTML special chars — prevents XSS from any user/imported data
+function esc(str){
+  if(str===null||str===undefined) return '';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#x27;')
+    .replace(/\//g,'&#x2F;');
+}
+
+// Sanitise a record from import — strip unexpected fields, validate types
+function sanitiseRec(rec){
+  if(!rec||typeof rec!=='object') return null;
+  var VALID_PROJECTS = ["MOVIT","PRK MT","KWAL TDR","SUNDRIES","UNGA","LG","DP WORLD","CDL","HR & ADMIN","OFFICE SUPPORT","FINANCE","BRANDING & CREATIVE","DATA/IT/PROCUREMENT","PM ACTIVATIONS"];
+  var VALID_PERIODS  = ["Q1 2026 (Jan–Mar)","Q2 2026 (Apr–Jun)","Q3 2026 (Jul–Sep)","Q4 2026 (Oct–Dec)"];
+  var VALID_ROLES    = ["Merchandiser","Team Leader","Project Manager","Order Booker","TDR","Promoter","Data Analyst","CDL Activation","CDL General Trade","CDL Modern Trade","HR Assistant","HR Manager","Finance Assistant","Finance Manager","Finance Manager","Data Officer","Data/IT/Procurement Manager","Company Driver","Office Catering & Facilities Assistant","Support Staff","Branding and Printing Manager","Digital Content & Creative Specialist","Executive Support & Admin Assistant","PM Activations"];
+  // Validate required fields
+  if(!rec.payno||typeof rec.payno!=='string') return null;
+  if(!rec.project||!VALID_PROJECTS.includes(rec.project)) return null;
+  if(!rec.period||!VALID_PERIODS.includes(rec.period)) return null;
+  // Sanitise string fields — strip HTML tags, limit length
+  function cleanStr(v,max){ return v?String(v).replace(/<[^>]*>/g,'').substring(0,max):''; }
+  return {
+    payno:        cleanStr(rec.payno, 20),
+    name:         cleanStr(rec.name, 80),
+    role:         VALID_ROLES.includes(rec.role)?rec.role:'',
+    project:      rec.project,
+    period:       rec.period,
+    supervisor:   cleanStr(rec.supervisor, 80),
+    selfScores:   Array.isArray(rec.selfScores)?rec.selfScores.map(function(v){ return Math.min(5,Math.max(0,parseInt(v)||0)); }):[],
+    supvScores:   Array.isArray(rec.supvScores)?rec.supvScores.map(function(v){ return Math.min(5,Math.max(0,parseInt(v)||0)); }):[],
+    selfNotes:    Array.isArray(rec.selfNotes)?rec.selfNotes.map(function(v){ return cleanStr(v,500); }):[],
+    supvComments: Array.isArray(rec.supvComments)?rec.supvComments.map(function(v){ return cleanStr(v,500); }):[],
+    selfWell:     cleanStr(rec.selfWell,1000),
+    selfImprove:  cleanStr(rec.selfImprove,1000),
+    selfSupport:  cleanStr(rec.selfSupport,1000),
+    supvStrengths:cleanStr(rec.supvStrengths,1000),
+    supvImprove:  cleanStr(rec.supvImprove,1000),
+    supvActions:  cleanStr(rec.supvActions,1000),
+    supvRemarks:  cleanStr(rec.supvRemarks,1000),
+    totalSelfPct: typeof rec.totalSelfPct==='number'?Math.min(100,Math.max(0,rec.totalSelfPct)):0,
+    totalSupvPct: typeof rec.totalSupvPct==='number'?Math.min(100,Math.max(0,rec.totalSupvPct)):0,
+    rating:       cleanStr(rec.rating,50),
+    source:       cleanStr(rec.source,20),
+    createdAt:    cleanStr(rec.createdAt,30),
+    updatedAt:    cleanStr(rec.updatedAt,30),
+  };
+}
+
+// Safe JSON parse for localStorage — always returns fallback on any error
+function safeJSON(str, fallback){
+  try{ var v=JSON.parse(str); return (v!==null&&v!==undefined)?v:fallback; }catch(e){ return fallback; }
+}
+
+// ════════════════════════════════════════════════════════
+// STAFF DATA
+// ════════════════════════════════════════════════════════
+const SEED = {"MOVIT": [["KEN401", "Dianna Akinyi", "Merchandiser"], ["MON197", "Christabel Shiranda", "Merchandiser"], ["MOV001", "Elizabeth Wanjiru", "Merchandiser"], ["MOV003", "Cecilia Nzilani", "Merchandiser"], ["MOV007", "Tabitha Mueni", "Merchandiser"], ["MOV008", "Mildred Vugutsa", "Merchandiser"], ["MOV017", "Victoria King'Eche", "Merchandiser"], ["MOV018", "Susan Auma", "Merchandiser"], ["MOV020", "Everline Awino", "Merchandiser"], ["MOV021", "Nancy Cherono", "Merchandiser"], ["MOV023", "Joyce Awino", "Merchandiser"], ["MOV030", "Mercy Ngatha", "Merchandiser"], ["MOV032", "Peninah Wangui", "Merchandiser"], ["MOV034", "Vincent Jared", "Merchandiser"], ["MOV037", "Annette Muthuita", "Merchandiser"], ["MOV040", "Carolyne Wanja", "Merchandiser"], ["MOV041", "Linah Isambe", "Merchandiser"], ["MOV042", "Naomy Kiprop", "Merchandiser"], ["MOV043", "Mercy Chege", "Merchandiser"], ["MOV044", "Kevin Oimbo Nyakwama", "Merchandiser"], ["MOV045", "Angela Wanjiku", "Merchandiser"], ["MOV046", "Teresa Kwamboka", "Merchandiser"], ["MOV047", "Stecy Grace Odera", "Merchandiser"], ["MOV048", "Mary Nyambura", "Merchandiser"], ["MOV049", "Mary Mungai", "Merchandiser"], ["MOV38", "Timna Hagerera", "Merchandiser"], ["NRD038", "Lencer Akinyi", "Merchandiser"], ["MOV029", "Panyako Clinton", "Order Booker"], ["CAD092", "Veronica Njoki Tumuti", "Project Manager"], ["MOV026", "Bonface Wanzala", "Team Leader"], ["MOV027", "Caroline Kinyua", "Team Leader"], ["MOV033", "Beatrice Ngatia", "Team Leader"], ["SND001", "Zipporah Mumbi Muthoni", "Team Leader"]], "PRK MT": [["DPW003", "Karen Waithira", "Merchandiser"], ["DPW007", "Quinter Otieno", "Merchandiser"], ["KWAL092", "David Ochieng' Ojack", "Merchandiser"], ["KWAL364", "Violet Onzere", "Merchandiser"], ["MCK179", "Grace Muthoki", "Merchandiser"], ["PRK006", "Valentine Winnie Atieno", "Merchandiser"], ["PRK016", "Mary Ng'Endo Muiruri", "Merchandiser"], ["PRK047", "Sheila Mbula", "Merchandiser"], ["prk051", "Goretty Onyango", "Merchandiser"], ["PRK075", "Michelle Wakonyo", "Merchandiser"], ["PRK078", "Wycliff Otieno", "Merchandiser"], ["PRK085", "Pauline Wambui Mugo", "Merchandiser"], ["PRK102", "Joyce Ngele Mwangada", "Merchandiser"], ["PRK111", "Jacinta Njuguna", "Merchandiser"], ["PRK125", "Angela Wangari", "Merchandiser"], ["PRK158", "Gabriel Kimotho", "Merchandiser"], ["PRK159", "Catherine Njuguna", "Merchandiser"], ["PRK186", "Bernedette Omariba", "Merchandiser"], ["PRK187", "Stephen Maina Njuru", "Merchandiser"], ["PRK188", "Maureen Wambui Kimari", "Merchandiser"], ["PRK192", "Halima Bakari", "Merchandiser"], ["PRK206", "Belinda Achieng'", "Merchandiser"], ["PRK214", "Lisa Kareka", "Merchandiser"], ["TNA002", "Juliet Shikami", "Merchandiser"], ["KWAL034", "Jaqueline Mitchelle", "Project Manager"], ["KOT035", "Mwanatumu Ramadhan", "Team Leader"], ["KWAL103", "Juliet Omondi", "Team Leader"], ["PRK011", "Pauline Njeri Wanjiru", "Team Leader"], ["PRK053", "Dennis Kiunjuri", "Team Leader"], ["PRK216", "Samuel Chacha", "Team Leader"]], "KWAL TDR": [["KWAL027", "Caroline Njoki", "Project Manager"], ["EABL129", "Kennedy Kinoti", "TDR"], ["KWAL 357", "Francis Macharia", "TDR"], ["KWAL 360", "Gladys Njoroge", "TDR"], ["KWAL018", "Samuel Murage", "TDR"], ["KWAL023", "Thomas Munene", "TDR"], ["kwal024", "Brian Otieno", "TDR"], ["KWAL026", "Loise Wakaria", "TDR"], ["KWAL056", "Caroline Wangeci", "TDR"], ["KWAL114", "Kenneth Kabiru Wambugu", "TDR"], ["KWAL271", "Mavince Okoth", "TDR"], ["KWAL277", "Alice Nduta Mungatu", "TDR"], ["KWAL289", "Stanley Kimutai Bett", "TDR"], ["KWAL303", "Abdallah Juma", "TDR"], ["KWAL304", "Brighton Kipkemei Too", "TDR"], ["KWAL344", "Douglas Kurendi", "TDR"], ["KWAL345", "Ann Wairimu Mugo", "TDR"], ["KWAL348", "Japhan Kipngeno", "TDR"], ["KWAL349", "Peter Agwata", "TDR"], ["KWAL350", "Patrick Peter", "TDR"], ["KWAL351", "Ingrid Bitonye", "TDR"], ["KWAL352", "Sammy Rotich", "TDR"], ["KWAL354", "Millicent Chepkemoi", "TDR"], ["KWAL361", "Erick Ndei", "TDR"], ["KWAL370", "Obed Wairoto", "TDR"], ["KWAL375", "Liza Njagi", "TDR"], ["KWAL376", "Miriam Wainaina", "TDR"], ["KWAL383", "Charles Obala", "TDR"], ["KWAL387", "Maureen Nanjala", "TDR"], ["KWAL388", "Sammy Wanga", "TDR"], ["SAF034", "Catherine Gathoni", "TDR"]], "SUNDRIES": [["SND096", "Joan Omondi", "Project Manager"], ["GDR220", "Felix Angwenyi", "Team Leader"], ["SND068", "Vincent Kioko", "Team Leader"], ["SND099", "Tracy Mwita", "Team Leader"], ["CBL005", "Victoria Ndegwa", "Merchandiser"], ["GDR262", "Victor Muhunzu Ndululu", "Merchandiser"], ["KSPREKO033", "Shirlay Kwamboka", "Merchandiser"], ["MEGA010", "Holliness Wughanga Nicholus", "Merchandiser"], ["SND006", "Ann Gathoni Bundi", "Merchandiser"], ["SND042", "Grace Kangwele Musya", "Merchandiser"], ["SND046", "Corazon Wambui Mbugua", "Merchandiser"], ["SND059", "Hesbon Chakava", "Merchandiser"], ["SND076", "Duke Ogweri", "Merchandiser"], ["SND079", "Terry Kithinji", "Merchandiser"], ["SND082", "Teresia Muthoni", "Merchandiser"], ["SND083", "Grace Omusula", "Merchandiser"], ["SND085", "Crispus Warui Githaiga", "Merchandiser"], ["SND089", "Emily Kanini Kavwali", "Merchandiser"], ["SND091", "Christine Barongo Mongare", "Merchandiser"], ["SND093", "Shadrack Macharia Wachira", "Merchandiser"], ["SND098", "Margaret Gathoni", "Merchandiser"], ["SND100", "Reginaida Vononi", "Merchandiser"], ["SND101", "Ivy Njom", "Merchandiser"], ["SND104", "Anne Marende", "Merchandiser"], ["SND105", "Naomi Kemunto", "Merchandiser"], ["SND106", "Mercy Nangila", "Merchandiser"], ["SND107", "Glen Victor Makuthu", "Merchandiser"], ["SND109", "Daphine Nyakara", "Merchandiser"], ["SND110", "Margaret Kariuki", "Merchandiser"], ["SND111", "Agnes Wambugha", "Merchandiser"], ["SND112", "Elizabeth Wavinya", "Merchandiser"], ["SND113", "Brian Langat", "Merchandiser"], ["SND114", "Everlyne Musembi", "Merchandiser"], ["SND115", "Brian Omondi", "Merchandiser"], ["SND116", "Grace Mwikali", "Merchandiser"], ["SND117", "Brian Ochieng", "Merchandiser"], ["SND118", "Everline Makokha", "Merchandiser"]], "UNGA": [["UNGA066", "David Chanzu", "Project Manager"], ["UNGA010", "Diana Akoth", "Team Leader"], ["UNGA031", "Joash Shitakhwa", "Team Leader"], ["UNGA036", "Maina Peter Maswi", "Team Leader"], ["UNGA049", "Smith Sydof Mulondi", "Team Leader"], ["UNGA093", "Kevin Odhiambo", "Team Leader"], ["UNGA002", "Alexander Wambua", "Merchandiser"], ["UNGA003", "Anne Salome Wanjiru", "Merchandiser"], ["UNGA004", "Bonface Waswa Nechesa", "Merchandiser"], ["UNGA006", "Christine Nyakanga", "Merchandiser"], ["UNGA007", "Christopher Mutule Muendo", "Merchandiser"], ["UNGA008", "Dancan Ouma", "Merchandiser"], ["UNGA009", "Daniel Juma Mutula", "Merchandiser"], ["UNGA011", "Eddah Adhiambo", "Merchandiser"], ["UNGA012", "Ejakait Moses Amoit", "Merchandiser"], ["UNGA013", "Elizabeth Akinyi Omoto", "Merchandiser"], ["UNGA015", "Emmanuel Musa Ademba", "Merchandiser"], ["UNGA016", "Erick Barongo Omoja", "Merchandiser"], ["UNGA020", "Felix Wekesa Mutuku", "Merchandiser"], ["UNGA021", "Fred Ombati", "Merchandiser"], ["UNGA023", "Gladyce Kanaiza Afwanda", "Merchandiser"], ["UNGA025", "Immaculate Anyango Anditi", "Merchandiser"], ["UNGA026", "Immanuel Kithii Maingi", "Merchandiser"], ["UNGA027", "Irene Nthambi Peter", "Merchandiser"], ["UNGA028", "Jackline Wanjiru Kahiga", "Merchandiser"], ["UNGA029", "James Thomi Kinyua", "Merchandiser"], ["UNGA030", "Jane Florence Akinyi", "Merchandiser"], ["UNGA034", "Lomongin Katula Keith", "Merchandiser"], ["UNGA035", "Magdaline Mbithe", "Merchandiser"], ["UNGA037", "Maureen Wanjiku Waithira", "Merchandiser"], ["UNGA038", "Mercy Jelagat", "Merchandiser"], ["UNGA039", "Mercy Njoki Karanja", "Merchandiser"], ["UNGA041", "Milcah Muthoni", "Merchandiser"], ["UNGA042", "Pamela Mwaringa", "Merchandiser"], ["UNGA044", "Rahab Munjiru Mutitu", "Merchandiser"], ["UNGA046", "Samuel Tom Lusuli", "Merchandiser"], ["UNGA047", "Scoffia Njambi", "Merchandiser"], ["UNGA048", "Simon Maina Makumi", "Merchandiser"], ["UNGA050", "Sospeter Otieno", "Merchandiser"], ["UNGA051", "Stellah Nafuna Wabomba", "Merchandiser"], ["UNGA053", "Teresia Syombua Mulingi", "Merchandiser"], ["UNGA054", "Travis Muiruri", "Merchandiser"], ["UNGA056", "Vera Omoche", "Merchandiser"], ["UNGA057", "Veronicah Nyambura", "Merchandiser"], ["UNGA058", "Victor Mwangi Wanjiku", "Merchandiser"], ["UNGA059", "Vincent Kiplimo Serem", "Merchandiser"], ["UNGA061", "Walter Onduso Lubanga", "Merchandiser"], ["UNGA064", "Yvonne Achieng Ouma", "Merchandiser"], ["UNGA065", "Yvonne Wangui", "Merchandiser"], ["UNGA069", "Jackson Kyalo", "Merchandiser"], ["UNGA080", "Gideon Kipkemboi", "Merchandiser"], ["UNGA081", "Euphrasia Lihavi", "Merchandiser"], ["UNGA082", "Jackton Muna", "Merchandiser"], ["UNGA084", "Brian UHURU", "Merchandiser"], ["UNGA085", "Saviour Shiyonga", "Merchandiser"], ["UNGA086", "Fredrick Modhe", "Merchandiser"], ["UNGA087", "Benson Ong'ai", "Merchandiser"], ["UNGA089", "Titus Kanisio", "Merchandiser"], ["UNGA091", "Hosea Mugosero", "Merchandiser"], ["UNGA092", "Christine Ndulu", "Merchandiser"], ["UNGA094", "Eric Ngigi", "Merchandiser"], ["UNGA095", "Tony Kimathi", "Merchandiser"]], "LG": [["LG0060", "Ridimida Moraa", "Project Manager"], ["LG0047", "MaryImmaculate Kariuki", "Data Analyst"], ["LG0049", "Kuzman Ahmed", "Merchandiser"], ["LG0050", "Willis Anyona", "Merchandiser"], ["LG0051", "Melvin Ngugi", "Merchandiser"], ["LG0052", "Paul Olakitar", "Merchandiser"], ["LG0053", "Hellen Nyambura", "Merchandiser"], ["LG0054", "Joseph Nganga", "Merchandiser"], ["LG0055", "Victor Ciele", "Merchandiser"], ["SND008", "Sharon Wavinya Nthusi", "Merchandiser"], ["LG0002", "Albert Makokha Wanjala", "Promoter"], ["LG0003", "Loice Mwangi", "Promoter"], ["LG0004", "Lilian Wanyua", "Promoter"], ["LG0005", "Kennneth Wanjiru", "Promoter"], ["LG0006", "Kelvin Maina", "Promoter"], ["LG0007", "Evans Kiprono", "Promoter"], ["LG0008", "Kelly Simiyu", "Promoter"], ["LG0009", "David Kimani", "Promoter"], ["LG0010", "Collins Otieno", "Promoter"], ["LG0011", "Elizabeth Wambui", "Promoter"], ["LG0012", "Michael Silakan", "Promoter"], ["LG0013", "Naomi Njoki", "Promoter"], ["LG0014", "Pauline Yogo", "Promoter"], ["LG0015", "Peter Muinde", "Promoter"], ["LG0016", "Rachel Waireri", "Promoter"], ["LG0017", "Reen Ndonye", "Promoter"], ["LG0018", "Shamila Kibai", "Promoter"], ["LG0019", "Stephen Otieno", "Promoter"], ["LG0021", "Bilha Wakesho", "Promoter"], ["LG0022", "Jackline Fenike", "Promoter"], ["LG0023", "Isaac Ngigi", "Promoter"], ["LG0024", "Damaris Kimani", "Promoter"], ["LG0025", "Denis Wanyonyi", "Promoter"], ["LG0026", "Dennis Kinyua", "Promoter"], ["LG0027", "Alfred Onyango", "Promoter"], ["LG0028", "Isaiah Wafula", "Promoter"], ["LG0029", "Allan Agwona", "Promoter"], ["LG0030", "Jefferson Mwangi", "Promoter"], ["LG0031", "Jemimah Omweri", "Promoter"], ["LG0032", "Joel Odul", "Promoter"], ["LG0033", "Joseph Simon", "Promoter"], ["LG0034", "Josphat Njeru", "Promoter"], ["LG0035", "Khamis Mohamed", "Promoter"], ["LG0036", "Alex Obadiah", "Promoter"], ["LG0037", "Martin Maitha", "Promoter"], ["LG0038", "Mathew Wambua", "Promoter"], ["LG0039", "Mercy Bolo", "Promoter"], ["LG0040", "Mercy Mwende", "Promoter"], ["LG0041", "Monica Mwangi", "Promoter"], ["LG0042", "Peter Kibet", "Promoter"], ["LG0043", "Regina Wanjiku", "Promoter"], ["LG0044", "Samwel Mwai", "Promoter"], ["LG0045", "Sylvia Mbugua", "Promoter"], ["LG0046", "Victor Mwangala", "Promoter"], ["LG0048", "Patrick Kimanzi", "Promoter"], ["LG0056", "George Maina", "Promoter"], ["LG0057", "Doreen Mukuba", "Promoter"], ["LG0058", "Dennis Tsuma", "Promoter"], ["LG0059", "Brian Mwangi", "Promoter"], ["LG0061", "Kent Mwangi", "Promoter"], ["LG0062", "Elizabeth Wambui Ndungu", "Promoter"], ["LG0063", "Virginia Muthoni", "Promoter"]], "DP WORLD": [["DPW011", "Margaret Wambui", "Merchandiser"], ["DPW012", "Charles Njoroge", "Merchandiser"], ["DPW013", "Ronald Libako", "Merchandiser"], ["DPW014", "Rozanne Mutie", "Merchandiser"], ["DPW016", "Eliud Ochieng'", "Merchandiser"], ["DPW017", "Ann Peter", "Merchandiser"], ["DPW018", "Faith Anyaa", "Merchandiser"], ["DPW019", "Mercy Munyao", "Merchandiser"], ["DPW020", "Cynthia Mueni", "Merchandiser"], ["DPW021", "Christine Atieno", "Merchandiser"]], "CDL": [["TTM012", "Atkins Ojango", "CDL Activation"], ["KWAL111", "Mary Nyiha Mwariri", "CDL General Trade"], ["TTM015", "Francis Marisia", "CDL Modern Trade"]], "HR & ADMIN": [["ZEN024", "Felista Moige", "HR Assistant"], ["TTM009", "Jean Nyambura Komo", "Executive Support & Admin Assistant"], ["TTM011", "Serah Warue Njue", "HR Manager"]], "OFFICE SUPPORT": [["TTM016", "Martin Ndirangu Wahome", "Company Driver"], ["TTM002", "Esther Wanjiku Mwangi", "Office Catering & Facilities Assistant"], ["TTM005", "Alexander Maina Gitonga", "Support Staff"]], "FINANCE": [["PN0004", "Eunice Macharia", "Finance Manager"], ["TTM013", "David Gichuru", "Finance Assistant"]], "BRANDING & CREATIVE": [["OFF022", "Stella Wanjira", "Branding and Printing Manager"], ["TTM018", "Hosea Wafula", "Digital Content & Creative Specialist"]], "DATA/IT/PROCUREMENT": [["TTM010", "Sandra Elisepa", "Data Officer"], ["TTM014", "Francis Muchiri", "Data/IT/Procurement Manager"], ["TTM017", "Joel Wanyoike", "Data Officer"]], "PM ACTIVATIONS": [["UKL037", "Margaret Wanjiru", "PM Activations"], ["MON047", "Betty Wangari", "PM Activations"]]};
+
+function getAllStaff() {
+  try {
+    const extra = safeJSON(lsGet("tt_extra_staff"),{});
+    const out = {};
+    const PROJ_KEYS = ["MOVIT","PRK MT","KWAL TDR","SUNDRIES","UNGA","LG","DP WORLD","CDL","HR & ADMIN","OFFICE SUPPORT","FINANCE","BRANDING & CREATIVE","DATA/IT/PROCUREMENT","PM ACTIVATIONS"];
+    for(const proj of PROJ_KEYS){
+      const seed = (SEED[proj]||[]).map(s=>{
+        // Support both array format [payno,name,role] and object format {payno,name,role}
+        if(Array.isArray(s)) return {payno:s[0], name:s[1], role:s[2].trim(), _seed:true};
+        return {...s, _seed:true};
+      });
+      out[proj] = [...seed, ...(extra[proj]||[])];
+    }
+    return out;
+  } catch(e) {
+    console.error('getAllStaff error:', e);
+    return {};
+  }
+}
+
+function findStaffByPayno(payno) {
+  const all = getAllStaff();
+  for(const proj of Object.keys(all)){
+    const s = all[proj].find(x=>x.payno.toLowerCase()===payno.toLowerCase());
+    if(s) return {...s, project:proj};
+  }
+  return null;
+}
+
+// ════════════════════════════════════════════════════════
+// KPI DATA
+// ════════════════════════════════════════════════════════
+const KPI={"MOVIT": {"Merchandiser": [["Volume Sales Achievement", 0.3], ["Route Completion & Productivity", 0.1], ["Product Availability", 0.2], ["Brand Visibility & Planogram Compliance", 0.2], ["Promotions & Activations", 0.1], ["Market Intelligence & Competition", 0.05], ["Trade Reports", 0.05]], "Order Booker": [["Volume Sales Achievement", 0.3], ["Route Completion & Productivity", 0.1], ["Product Availability", 0.2], ["Brand Visibility & Planogram Compliance", 0.2], ["Promotions & Activations", 0.1], ["Market Intelligence & Competition", 0.05], ["Trade Reports", 0.05]], "Team Leader": [["Team Volume Sales Achievement", 0.3], ["Team Route Completion & Productivity", 0.15], ["Product Availability (Team average)", 0.15], ["Brand Visibility & Planogram Compliance", 0.15], ["Promotions & Activations Execution", 0.1], ["Team Coaching & Performance Management", 0.1], ["Reporting & Market Intelligence", 0.05]], "Project Manager": [["Overall Project Sales Achievement", 0.3], ["Outlet Coverage & Productivity", 0.1], ["Product Availability & Distribution", 0.15], ["Brand Visibility & Execution Standards", 0.15], ["Promotions & Activations Performance", 0.1], ["Team Management & Retention", 0.1], ["Client Satisfaction & Stakeholder Management", 0.05], ["Reporting, Compliance & Market Intelligence", 0.05]]}, "PRK MT": {"Merchandiser": [["Order Tracking", 0.25], ["Product Visibility", 0.2], ["Category Share of Shelf", 0.2], ["Stock Management", 0.1], ["Presentation", 0.05], ["Space Acquisition (SOS)", 0.05], ["Placement of POS", 0.05], ["Correct Pricing", 0.05], ["Monitor Competition", 0.05]], "Team Leader": [["Team Order Tracking Performance", 0.25], ["Product Visibility Compliance", 0.15], ["Category Share of Shelf Achievement", 0.15], ["Stock Management Compliance", 0.1], ["Team Coaching & Field Accompaniment", 0.1], ["Space Acquisition (SOS) Achievement", 0.1], ["POS Material Placement & Compliance", 0.05], ["Pricing Compliance", 0.05], ["Market Intelligence & Competitor Reporting", 0.05]], "Project Manager": [["Overall Project Order Achievement", 0.25], ["Product Visibility & Execution Standards", 0.15], ["Category Share of Shelf Growth", 0.15], ["Stock Management & Availability", 0.1], ["Team Management, Recruitment & Retention", 0.1], ["Space Acquisition (SOS) Achievement", 0.1], ["POSM Deployment & Promotional Execution", 0.05], ["Pricing Compliance Across Accounts", 0.05], ["Client Satisfaction & Relationship Management", 0.03], ["Reporting, Market Intelligence & Insights", 0.02]]}, "KWAL TDR": {"TDR": [["Availability", 0.2], ["Affordability", 0.2], ["Quality Execution", 0.1], ["Volume Achievement – Beer", 0.15], ["Volume Achievement – Cider", 0.1], ["Mix Achievement – Beer", 0.15], ["Mix Achievement – Cider", 0.1]], "Project Manager": [["Volume Achievement", 0.25], ["Availability Compliance", 0.15], ["Affordability Compliance", 0.1], ["Quality & Asset Compliance", 0.1], ["Mix Achievement", 0.15], ["Team Productivity & Coverage", 0.1], ["Reporting & Data Accuracy", 0.05], ["Client Satisfaction & Stakeholder Management", 0.05], ["People Management", 0.05]]}, "SUNDRIES": {"Merchandiser": [["Product Availability & Stock Management", 0.3], ["Share of Shelf (SOS) & Placement Execution", 0.25], ["Display & Perfect Store Execution", 0.15], ["Pricing Compliance", 0.1], ["Promotion Execution", 0.1], ["Asset Tracking & Management", 0.05], ["Reporting & Administration", 0.05]], "Team Leader": [["Team Product Availability", 0.25], ["Placement & Share of Shelf Execution", 0.2], ["Promotion & Perfect Store Compliance", 0.15], ["Team Productivity & Route Compliance", 0.15], ["Reporting & Data Accuracy", 0.1], ["Coaching & People Management", 0.1], ["Asset Management", 0.05]], "Project Manager": [["National Execution Performance", 0.25], ["Sales & Visibility Targets", 0.2], ["Client Satisfaction & Compliance", 0.15], ["Team Leadership & Talent Management", 0.1], ["Reporting & Business Insights", 0.1], ["Budget & Cost Management", 0.1], ["Project Governance & Innovation", 0.1]]}, "UNGA": {"Merchandiser": [["Sales Performance", 0.3], ["Planogram Compliance", 0.1], ["Share of Shelf (SOS)", 0.1], ["On-Shelf Availability (OSA)", 0.15], ["Store Coverage & Call Cycle Adherence", 0.15], ["Stock Management & Returns", 0.1], ["Reporting & Data Quality", 0.05], ["Asset & POSM Management", 0.05]], "Team Leader": [["Team Sales Performance", 0.3], ["Perfect Store Compliance", 0.25], ["Coverage & Route Compliance", 0.15], ["Stock Management & Returns", 0.1], ["Team Productivity & Coaching", 0.1], ["Reporting & Data Accuracy", 0.05], ["Client & Stakeholder Management", 0.05]], "Project Manager": [["National Sales Achievement", 0.3], ["Perfect Store Execution", 0.2], ["Coverage & Productivity", 0.1], ["Stock Management & Returns", 0.1], ["Client KPIs Achievement", 0.1], ["Reporting & Business Insights", 0.05], ["Financial Management", 0.05], ["People Management", 0.05], ["Stakeholder Management", 0.05]]}, "LG": {"Promoter": [["Sales Target Achievement", 0.6], ["Productivity", 0.1], ["Training & Product Knowledge", 0.1], ["Flooring Improvement", 0.2]], "Merchandiser": [["Sales Target Achievement", 0.6], ["Productivity", 0.1], ["Training & Product Knowledge", 0.1], ["Flooring Improvement", 0.2]], "Team Leader": [["Team Sales Target Achievement", 0.5], ["Team Productivity", 0.15], ["Training & Coaching", 0.1], ["Flooring Improvement", 0.15], ["Compliance & Execution", 0.1]], "Project Manager": [["Project Sales Target Achievement", 0.45], ["Team Productivity & Performance", 0.15], ["Training Effectiveness", 0.1], ["Flooring Improvement", 0.15], ["Client & Stakeholder Management", 0.1], ["Reporting & Compliance", 0.05]], "Data Analyst": [["Sales Target Achievement", 0.6], ["Productivity", 0.1], ["Training & Product Knowledge", 0.1], ["Flooring Improvement", 0.2]]}, "DP WORLD": {"Merchandiser": [["Product Availability & Order Generation", 0.3], ["Placement & Share of Shelf Execution", 0.25], ["Pricing Compliance", 0.1], ["Promotion Execution", 0.15], ["Asset Tracking & Management", 0.1], ["Reporting & Administration", 0.1]], "Team Leader": [["Team Product Availability Performance", 0.25], ["Team Placement & Visibility Execution", 0.2], ["Promotion & Campaign Execution", 0.15], ["Team Productivity & Coverage", 0.15], ["Coaching & Team Development", 0.1], ["Reporting & Data Quality", 0.1], ["Asset Management", 0.05]], "Project Manager": [["National Execution Performance", 0.25], ["Sales & Visibility Targets", 0.2], ["Client Satisfaction & Compliance", 0.15], ["Team Leadership & Talent Management", 0.1], ["Reporting & Business Insights", 0.1], ["Budget & Cost Management", 0.1], ["Project Governance & Innovation", 0.1]]}, "CDL": {"CDL Activation": [["Leadership & Management", 0.2], ["Activation Capabilities Development", 0.15], ["Activation Strategy & Execution", 0.2], ["Mentorship & Talent Development", 0.1], ["Process Improvement & Optimization", 0.1], ["Client Engagement & Relationship Management", 0.1], ["Cross-Functional Collaboration", 0.05], ["Risk & Project Management", 0.05], ["Analytics & Reporting", 0.05]], "CDL General Trade": [["Leadership & Management", 0.2], ["Strategy & Capability Development", 0.2], ["Client Relationship Management", 0.15], ["Internal Collaboration", 0.1], ["Process Improvement & Capability Development", 0.1], ["Analytics & Reporting", 0.1], ["Vendor & Partner Management", 0.05], ["Project Management & Delivery", 0.05], ["Risk Management", 0.05]], "CDL Modern Trade": [["Leadership & Management", 0.2], ["Project Management & Execution", 0.2], ["Strategy & Development", 0.15], ["Collaboration & Stakeholder Management", 0.15], ["Budget & Resource Management", 0.1], ["Performance Monitoring & Reporting", 0.1], ["Risk Management", 0.1]]}, "HR & ADMIN": {"HR Assistant": [["Recruitment Administration", 0.2], ["Employee Records Management", 0.2], ["Onboarding Support", 0.15], ["Leave & Attendance Administration", 0.1], ["Payroll & Benefits Support", 0.1], ["Employee Relations Support", 0.1], ["Reporting & Compliance", 0.1], ["Training & Development Support", 0.05]], "HR Manager": [["Recruitment & Talent Acquisition", 0.2], ["Performance Management", 0.15], ["Employee Engagement & Culture", 0.15], ["Policy, Compliance & Governance", 0.15], ["Compensation & Benefits Management", 0.1], ["Employee Relations", 0.1], ["HR Reporting & Analytics", 0.1], ["Leadership & Team Development", 0.05]], "Executive Support & Admin Assistant": [["Executive Support", 0.25], ["Administrative Operations", 0.2], ["Human Resource Support", 0.2], ["Compliance & Documentation", 0.1], ["Communication & Customer Service", 0.1], ["Confidentiality & Professionalism", 0.1], ["Initiative & Task Completion", 0.05]]}, "OFFICE SUPPORT": {"Company Driver": [["Executive Driver Support (MD)", 0.25], ["Timely Deliveries & Transport Support", 0.2], ["Vehicle Care & Maintenance", 0.2], ["Safety & Compliance", 0.15], ["Office Support Duties", 0.1], ["Documentation & Record Keeping", 0.05], ["Professionalism & Customer Service", 0.05]], "Office Catering & Facilities Assistant": [["Breakfast Preparation & Service", 0.35], ["Meeting Snacks & Hospitality", 0.25], ["Kitchen Hygiene & Food Safety", 0.1], ["Compound Cleaning Supervision", 0.15], ["Inventory Management", 0.1], ["Professional Conduct", 0.05]], "Support Staff": [["Grounds & Landscaping Maintenance", 0.25], ["Office & Facility Cleanliness", 0.2], ["Minor Repairs & Facility Maintenance", 0.2], ["Timely Deliveries & Logistics Support", 0.2], ["Security & Access Control", 0.05], ["Records & Inventory Management", 0.05], ["Attendance & Professional Conduct", 0.05]]}, "FINANCE": {"Finance Assistant": [["Accounts Payable & Receivable Management", 0.2], ["Reconciliations & Financial Records", 0.2], ["Compliance & Payroll Support", 0.1], ["Financial Documentation & Filing", 0.1], ["Expenditure Monitoring & Controls", 0.1], ["Reporting Support", 0.1], ["Asset Management Support", 0.05], ["Audit Support", 0.05], ["Systems & Data Management", 0.05], ["Professional Development & Continuous Improvement", 0.05]], "Finance Manager": [["Budgeting & Forecasting", 0.15], ["Financial Reporting & Management Accounts", 0.2], ["Compliance & Statutory Management", 0.15], ["Cash Flow & Working Capital Management", 0.1], ["Financial Controls & Audit Management", 0.1], ["Project Financial Performance", 0.1], ["Team Leadership & Stakeholder Management", 0.1], ["Process Improvement & Systems Management", 0.1]]}, "BRANDING & CREATIVE": {"Branding and Printing Manager": [["Quality of Marketing Collateral", 0.15], ["Timely Project Delivery", 0.1], ["Internal Coordination Effectiveness", 0.1], ["Client Satisfaction", 0.15], ["Issue Resolution", 0.1], ["Follow Through on New Opportunities", 0.1], ["Quotation & LPO Accuracy", 0.1], ["Budget Adherence", 0.05], ["Regulatory Compliance", 0.05], ["Vendor Performance", 0.05], ["Cost Efficiency", 0.05]], "Digital Content & Creative Specialist": [["Content Creation & Quality", 0.25], ["Content Delivery & Calendar Management", 0.15], ["Graphic Design & Creative Output", 0.15], ["Digital Engagement & Performance", 0.15], ["Brand Compliance", 0.1], ["Campaign & Marketing Support", 0.1], ["Collaboration & Stakeholder Management", 0.05], ["Reporting & Analytics", 0.05]]}, "DATA/IT/PROCUREMENT": {"Data Officer": [["Data Collection & Management", 0.25], ["Data Quality Assurance", 0.2], ["Reporting & Dashboard Support", 0.15], ["Database Maintenance", 0.1], ["Data Compliance & Security", 0.1], ["Field & Project Support", 0.1], ["Stakeholder Support", 0.05], ["Innovation & Process Improvement", 0.05]], "Data/IT/Procurement Manager": [["Data Strategy & Oversight", 0.15], ["IT Infrastructure & System Administration", 0.15], ["Data Quality & Governance", 0.1], ["Cybersecurity & Compliance", 0.1], ["Reporting & Analytics", 0.1], ["Procurement & Asset Management", 0.15], ["Innovation & Automation", 0.1], ["Collaboration & Capacity Building", 0.05], ["Issue Resolution & Technical Support", 0.1]]}, "PM ACTIVATIONS": {"PM Activations": [["Project Delivery & Execution", 0.25], ["Client Relationship Management", 0.15], ["Financial Management", 0.15], ["Team Leadership & Resource Management", 0.15], ["Operational Excellence & Compliance", 0.1], ["Stakeholder & Cross-Functional Collaboration", 0.05], ["Risk & Issue Management", 0.05], ["Reporting & Analytics", 0.05], ["Business Growth & Innovation", 0.05]]}};
+
+// Normalise KPI entry — handles both [name, weight] arrays and {name, weight} objects
+function normKPI(entries) {
+  return (entries||[]).map(k => Array.isArray(k) ? {name:k[0], weight:k[1]} : k);
+}
+
+// Project Manager per project — used to auto-fill supervisor field for Team Leaders
+const PROJECT_PM = {
+  "MOVIT":              {name:"Veronica Njoki Tumuti", payno:"CAD092"},
+  "PRK MT":             {name:"Jaqueline Mitchelle",   payno:"KWAL034"},
+  "KWAL TDR":           {name:"Caroline Njoki",        payno:"KWAL027"},
+  "SUNDRIES":           {name:"Joan Omondi",            payno:"SND096"},
+  "UNGA":               {name:"David Chanzu",           payno:"UNGA066"},
+  "LG":                 {name:"Ridimida Moraa",         payno:"LG0060"},
+  "DP WORLD":           {name:null,                     payno:null},
+  "CDL":                {name:null,                     payno:null},
+  "HR & ADMIN":         {name:null,                     payno:null},
+  "OFFICE SUPPORT":     {name:null,                     payno:null},
+  "FINANCE":            {name:null,                     payno:null},
+  "BRANDING & CREATIVE":{name:null,                     payno:null},
+  "DATA/IT/PROCUREMENT":{name:null,                     payno:null},
+  "PM ACTIVATIONS":     {name:null,                     payno:null},
+};
+
+const scorePct = v => v * 20;
+function ratingLabel(pct){
+  if(pct>=85) return "Exceptional";
+  if(pct>=70) return "Exceeds Expectations";
+  if(pct>=55) return "Meets Expectations";
+  if(pct>=40) return "Below Expectations";
+  return "Unsatisfactory";
+}
+function ratingClass(pct){
+  if(pct>=85) return "r5";
+  if(pct>=70) return "r4";
+  if(pct>=55) return "r3";
+  if(pct>=40) return "r2";
+  return "r1";
+}
+
+// ════════════════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════════════════
+let CU = null; // current user {payno, name, role, project, isAdmin}
+
+// ════════════════════════════════════════════════════════
+// DEPARTMENT HEADS — cross-project appraisal authority
+// ════════════════════════════════════════════════════════
+// Each Dept Head can appraise ALL staff (including PMs) in their assigned projects
+// They can also self-assess
+var DEPT_HEADS = {
+  "TTM012": { name:"Atkins Ojango",      title:"Head of Activations",        projects:["PM ACTIVATIONS"] },
+  "KWAL111": { name:"Mary Nyiha Mwariri", title:"Head of Merchandising",      projects:["MOVIT","PRK MT","SUNDRIES","DP WORLD"] },
+  "TTM014": { name:"Francis Muchiri",    title:"Head of Data/IT/Procurement", projects:["DATA/IT/PROCUREMENT"] },
+  "PN0004":  { name:"Eunice Macharia",   title:"Head of Finance",             projects:["FINANCE"] },
+  "TTM015": { name:"Francis Marisia",    title:"Head of LMD/TDR",            projects:["KWAL TDR"] },
+};
+
+function isDeptHead(cu){ return cu && !cu.isAdmin && !!DEPT_HEADS[cu.payno]; }
+function deptHeadInfo(cu){ return DEPT_HEADS[cu.payno]||null; }
+
+// ════════════════════════════════════════════════════════
+// ADMIN AUTHENTICATION — PIN hashed with Web Crypto SHA-256
+// The actual PIN is never stored in the file. Only its SHA-256 hash is.
+// To change the admin PIN: run SHA-256(salt+newPIN) and update ADMIN_PIN_HASH.
+// Salt: "TTMarketing_KPI_2026"
+// Default PIN hint: T***********6 (13 chars) — change after first login
+// ════════════════════════════════════════════════════════
+var ADMIN_PIN_HASH = "f4ce0c527e3f9c56e31a05325b4e89c01c9274ed5a7e73a857e8ab0a77a2f9fb";
+var ADMIN_PIN_SALT = "TTMarketing_KPI_2026";
+
+function hashPin(pin, callback){
+  try{
+    if(window.crypto&&window.crypto.subtle){
+      var msg = new TextEncoder().encode(ADMIN_PIN_SALT + pin);
+      window.crypto.subtle.digest('SHA-256', msg).then(function(buf){
+        var hex = Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+        callback(hex);
+      }).catch(function(){ callbackFallback(pin, callback); });
+    } else {
+      callbackFallback(pin, callback);
+    }
+  } catch(e){ callbackFallback(pin, callback); }
+}
+
+// Fallback for older browsers without Web Crypto — simple hash
+function callbackFallback(pin, callback){
+  var str = ADMIN_PIN_SALT + pin;
+  var hash = 0;
+  for(var i=0;i<str.length;i++){ hash=((hash<<5)-hash)+str.charCodeAt(i); hash|=0; }
+  // In fallback mode, compare against a backup simple hash
+  callback('FALLBACK:' + Math.abs(hash).toString(16));
+}
+
+function verifyAdminPin(pin, callback){
+  if(!pin||pin.length<6){ callback(false); return; }
+  hashPin(pin, function(hash){
+    if(hash.startsWith('FALLBACK:')){
+      // Browser too old for Web Crypto — for security, require modern browser
+      callback(false);
+      document.getElementById("li-err").textContent="Please use a modern browser for admin login (Chrome, Firefox, Safari, Edge).";
+    } else {
+      callback(hash === ADMIN_PIN_HASH);
+    }
+  });
+}
+
+function populateLoginStaff(){
+  const proj = document.getElementById("li-project").value;
+  const wrap = document.getElementById("li-staff-wrap");
+  const sel  = document.getElementById("li-staff");
+  if(!proj || proj==="ADMIN"){ wrap.style.display="none"; sel.innerHTML="<option value=''>—</option>"; return; }
+  wrap.style.display="block";
+  const all = getAllStaff();
+  sel.innerHTML = '<option value="">— Select your name —</option>';
+  (all[proj]||[]).sort((a,b)=>a.name.localeCompare(b.name)).forEach(s=>{
+    const o = document.createElement("option");
+    o.value = s.payno; o.textContent = `${s.name} (${s.payno})`;
+    sel.appendChild(o);
+  });
+}
+
+function doLogin(){
+  const proj  = document.getElementById("li-project").value;
+  const payno = document.getElementById("li-staff").value || "";
+  const pin   = document.getElementById("li-pin").value.trim();
+  const err   = document.getElementById("li-err");
+  err.textContent = "";
+
+  if(!proj){ err.textContent="Please select a project."; return; }
+
+  // Admin login — PIN verified against SHA-256 hash (not stored in plain text)
+  if(proj==="ADMIN"){
+    verifyAdminPin(pin, function(valid){
+      if(valid){
+        CU = {payno:"admin",name:"Administrator",role:"Admin",project:null,isAdmin:true};
+        launchApp();
+      } else {
+        document.getElementById("li-err").textContent="Invalid admin PIN.";
+      }
+    });
+    return;
+  }
+
+  if(!payno){ err.textContent="Please select your name."; return; }
+  if(!pin){ err.textContent="Please enter your payroll number as PIN."; return; }
+
+  const s = findStaffByPayno(payno);
+  if(!s){ err.textContent="Staff member not found."; return; }
+
+  // PIN must match payroll number (case-insensitive)
+  if(pin.toLowerCase()!==s.payno.toLowerCase()){
+    err.textContent="PIN does not match your payroll number."; return;
+  }
+
+  CU = {...s, isAdmin:false};
+  launchApp();
+}
+
+function launchApp(){
+  document.getElementById("login-screen").classList.add("hidden");
+  document.getElementById("main-app").classList.remove("hidden");
+  document.getElementById("ui-name").textContent = CU.name;
+  document.getElementById("ui-role-disp").textContent = CU.isAdmin?"Admin":CU.role;
+  buildNav();
+  if(CU.isAdmin){
+    showSec('team');
+  } else if(isDeptHead(CU)){
+    // Dept Heads land on Team tab (they assess others) but also have self-assessment
+    showSec('team');
+  } else {
+    initSelfAppraisal();
+  }
+}
+
+function buildNav(){
+  try{
+    var isTL    = CU.role==="Team Leader";
+    var isPM    = CU.role==="Project Manager";
+    var isAdmin = CU.isAdmin;
+    var isDH    = isDeptHead(CU);
+    var canScore = isTL||isPM||isAdmin||isDH;
+
+    // Desktop tabs
+    setTabVisible(document.querySelector('[data-sec="appraisal"]'), !isAdmin);
+    setTabVisible("tab-team", canScore);
+    setTabVisible("tab-dashboard", canScore);
+    setTabVisible("tab-staffmgt", canScore);
+    setTabVisible("tab-sync", true);
+
+    // Mobile nav buttons
+    setTabVisible("mnav-appraisal", !isAdmin);
+    setTabVisible("mnav-team", canScore);
+    setTabVisible("mnav-dashboard", canScore);
+    setTabVisible("mnav-staff-mgt", canScore);
+    // mnav-sync always visible
+  }catch(e){ console.error("buildNav error:",e); }
+}
+
+function setTabVisible(elOrId, show){
+  try{
+    var el = typeof elOrId === "string" ? $id(elOrId) : elOrId;
+    if(el) el.classList.toggle("hidden", !show);
+  }catch(e){}
+}
+
+function doLogout(){
+  CU=null;
+  document.getElementById("li-project").value="";
+  document.getElementById("li-pin").value="";
+  populateLoginStaff();
+  document.getElementById("main-app").classList.add("hidden");
+  document.getElementById("login-screen").classList.remove("hidden");
+}
+
+// ════════════════════════════════════════════════════════
+// SECTION SWITCHER
+// ════════════════════════════════════════════════════════
+function mobileNav(id,btn){
+  try{ showSec(id); }catch(e){ console.error("mobileNav error:",e); }
+}
+
+function showSec(id){
+  document.querySelectorAll(".section-tab").forEach(el=>el.classList.add("hidden"));
+  document.getElementById("sec-"+id).classList.remove("hidden");
+  document.querySelectorAll(".tab-btn[data-sec]").forEach(b=>b.classList.remove("active"));
+  const btn = document.querySelector(`.tab-btn[data-sec="${id}"]`);
+  if(btn) btn.classList.add("active");
+  if(id==="dashboard") renderDash();
+  if(id==="staff-mgt") renderStaffMgt();
+  if(id==="team") initTmProjectDropdown();
+  if(id==="sync") updateExportCount();
+}
+
+// ════════════════════════════════════════════════════════
+// RECORDS STORE
+// ════════════════════════════════════════════════════════
+function getRecs(){ return safeJSON(lsGet("tt_kpi_v3"),[]); }
+function setRecs(r){ lsSet("tt_kpi_v3", JSON.stringify(r)); }
+
+function upsertRec(rec){
+  // Upsert by payno+project+period, separately for self vs supv
+  let recs = getRecs();
+  const idx = recs.findIndex(r=>r.payno===rec.payno&&r.project===rec.project&&r.period===rec.period);
+  if(idx>=0){
+    // Merge: preserve fields from existing, overwrite with incoming (by field)
+    recs[idx] = {...recs[idx], ...rec, updatedAt: new Date().toISOString()};
+  } else {
+    recs.push({...rec, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()});
+  }
+  setRecs(recs);
+}
+
+// ════════════════════════════════════════════════════════
+// SELF APPRAISAL
+// ════════════════════════════════════════════════════════
+let selfState = {kpis:[], scores:[], notes:[]};
+
+function initSelfAppraisal(){
+  if(CU.isAdmin){ return; }  // Admin has no personal appraisal
+  const s = CU;
+  document.getElementById("self-staff-name").textContent = s.name;
+  document.getElementById("sa-name").textContent    = s.name;
+  document.getElementById("sa-payno").textContent   = s.payno;
+  document.getElementById("sa-role").textContent    = s.role;
+  document.getElementById("sa-project").textContent = s.project;
+
+  // Show supervisor on self-assessment form
+  if(s.role === "Team Leader"){
+    const pm = PROJECT_PM[s.project];
+    document.getElementById("sa-supv").textContent = pm && pm.name ? pm.name : s.project + " Project Manager";
+    document.getElementById("sa-supv-wrap").style.display = "";
+  } else if(isDeptHead(CU)){
+    document.getElementById("sa-supv").textContent = "Administrator / Management";
+    document.getElementById("sa-supv-wrap").style.display = "";
+  } else {
+    document.getElementById("sa-supv-wrap").style.display = "none";
+  }
+
+  const kpis = normKPI((KPI[s.project]||{})[s.role] || (KPI[s.project]||{})["Merchandiser"] || []);
+  selfState = { kpis, scores:kpis.map(()=>0), notes:kpis.map(()=>"") };
+
+  // Load existing self data if saved
+  const existing = getRecs().find(r=>r.payno===s.payno&&r.project===s.project&&r.period===document.getElementById("sa-period").value);
+  renderSelfTable();
+  if(existing){
+    (existing.selfScores||[]).forEach((v,i)=>{ if(v>0) setSelfScore(i,v); });
+    (existing.selfNotes||[]).forEach((n,i)=>{ selfState.notes[i]=n; const ta=document.getElementById(`sn-${i}`); if(ta) ta.value=n; });
+    document.getElementById("self-txt-well").value = existing.selfWell||"";
+    document.getElementById("self-txt-improve").value = existing.selfImprove||"";
+    document.getElementById("self-txt-support").value = existing.selfSupport||"";
+  }
+  updateSelfHero();
+}
+
+function renderSelfTable(){
+  const tbody = document.getElementById("self-kpi-tbody");
+  tbody.innerHTML="";
+  selfState.kpis.forEach((kpi,i)=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML=`
+      <td style="text-align:center;color:var(--muted);font-weight:600;font-size:11px">${i+1}</td>
+      <td class="kpi-n">${kpi.name}</td>
+      <td class="wt-c">${(kpi.weight*100).toFixed(0)}%</td>
+      <td>
+        <div class="pb-wrap">
+          <div class="pb-row" id="spb-${i}">
+            ${[1,2,3,4,5].map(v=>`<button class="pb" data-v="${v}" onclick="setSelfScore(${i},${v})" title="${v*20}%">${v}</button>`).join("")}
+          </div>
+          <div class="pv sv" id="spv-${i}">—</div>
+          <div class="prog"><div class="prog-fill pf-s" id="sprog-${i}" style="width:0%"></div></div>
+        </div>
+      </td>
+      <td class="wt-c"><span class="wp wp-s" id="spct-${i}">—</span></td>
+      <td class="wt-c"><span class="wp wp-s" id="swtd-${i}">—</span></td>
+      <td><textarea class="ni" id="sn-${i}" placeholder="Notes…" oninput="selfState.notes[${i}]=this.value"></textarea></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function setSelfScore(idx,val){
+  selfState.scores[idx]=val;
+  const pct=scorePct(val);
+  document.querySelectorAll(`#spb-${idx} .pb`).forEach(b=>{
+    b.classList.remove("self-on");
+    if(parseInt(b.dataset.v)<=val) b.classList.add("self-on");
+  });
+  document.getElementById(`spv-${idx}`).textContent=pct+"%";
+  document.getElementById(`sprog-${idx}`).style.width=pct+"%";
+  document.getElementById(`spct-${idx}`).textContent=pct+"%";
+  const wtd=pct*selfState.kpis[idx].weight;
+  document.getElementById(`swtd-${idx}`).textContent=wtd.toFixed(1)+"%";
+  updateSelfHero();
+}
+
+function updateSelfHero(){
+  const total=selfState.kpis.reduce((s,k,i)=>s+scorePct(selfState.scores[i])*k.weight,0);
+  const scored=selfState.scores.filter(s=>s>0).length;
+  const total_kpis=selfState.kpis.length;
+  const remaining=total_kpis-scored;
+
+  document.getElementById("self-hero-pct").textContent=total.toFixed(1)+"%";
+  document.getElementById("self-hero-rat").innerHTML=scored>0?`<span class="rb ${ratingClass(total)}">${ratingLabel(total)}</span>`:"";
+  document.getElementById("self-hero-grade").textContent=scored>0?ratingLabel(total):"Rate your KPIs";
+  document.getElementById("self-hero-scored").textContent=`${scored} / ${total_kpis}`;
+  document.getElementById("self-hero-remaining").textContent=remaining>0?`${remaining} remaining`:"All KPIs rated ✓";
+  document.getElementById("self-score-hero").style.display="flex";
+}
+
+function saveSelfAppraisal(){
+  if(!CU||CU.isAdmin){ showToast("Admin does not have a personal appraisal.","warn"); return; }
+  const period = document.getElementById("sa-period").value;
+
+  // Validate all self-reflection notes are filled
+  const well    = document.getElementById("self-txt-well").value.trim();
+  const improve = document.getElementById("self-txt-improve").value.trim();
+  const support = document.getElementById("self-txt-support").value.trim();
+  if(!well){    showToast("Please fill in 'What went well this period?' before saving.","warn"); document.getElementById("self-txt-well").focus();    return; }
+  if(!improve){ showToast("Please fill in 'What could you improve?' before saving.","warn");    document.getElementById("self-txt-improve").focus(); return; }
+  if(!support){ showToast("Please fill in 'Development or support you need' before saving.","warn"); document.getElementById("self-txt-support").focus(); return; }
+
+  // Block duplicate submission for the same quarter
+  const existing = getRecs().find(r=>r.payno===CU.payno && r.project===CU.project && r.period===period && r.totalSelfPct);
+  if(existing){
+    if(!confirm(`A self-assessment for ${period} already exists. Do you want to overwrite it?`)) return;
+  }
+
+  const rec = {
+    payno:CU.payno, name:CU.name, role:CU.role, project:CU.project, period,
+    selfScores:[...selfState.scores],
+    selfNotes:[...selfState.notes],
+    selfWell: well,
+    selfImprove: improve,
+    selfSupport: support,
+    totalSelfPct: selfState.kpis.reduce((s,k,i)=>s+scorePct(selfState.scores[i])*k.weight,0),
+    source: CU.payno,
+  };
+  upsertRec(rec);
+  showToast(`✓ Self-assessment saved for ${CU.name}`,"ok");
+}
+
+// ════════════════════════════════════════════════════════
+// TEAM / SUPERVISOR SCORING
+// ════════════════════════════════════════════════════════
+let tmState = {proj:null, staff:null, kpis:[], scores:[], comments:[]};
+
+function onTmProjectChange(){
+  const proj = document.getElementById("tm-project").value;
+  const sel  = document.getElementById("tm-staff");
+  sel.innerHTML='<option value="">— Select Staff —</option>';
+  if(!proj){ sel.disabled=true; return; }
+  sel.disabled=false;
+  const all = getAllStaff();
+  let list = (all[proj]||[]);
+
+  // Team Leader: frontline only in own project
+  // Project Manager: all except other PMs in own project
+  // Dept Head: ALL staff (including PMs) in their assigned projects
+  // Admin: all
+  const myRole = CU.isAdmin?"Admin":isDeptHead(CU)?"DeptHead":CU.role;
+  if(myRole==="Team Leader"){
+    const frontline=["Merchandiser","Order Booker","TDR","Promoter","Data Analyst"];
+    list = list.filter(s=>frontline.includes(s.role));
+  } else if(myRole==="Project Manager"){
+    list = list.filter(s=>s.role!=="Project Manager");
+  }
+  // DeptHead and Admin: no role filter — see everyone
+
+  list.sort((a,b)=>a.name.localeCompare(b.name)).forEach(s=>{
+    const o=document.createElement("option");
+    o.value=s.payno; o.textContent=`${s.name} (${s.role})`;
+    sel.appendChild(o);
+  });
+  document.getElementById("tm-payno").textContent="—";
+  document.getElementById("tm-role").textContent="—";
+  document.getElementById("tm-kpi-area").classList.add("hidden");
+  document.getElementById("tm-score-hero").classList.add("hidden");
+}
+
+function initTmProjectDropdown(){
+  const projSel = document.getElementById("tm-project");
+  if(CU.isAdmin){
+    // Admin: all projects unlocked
+    projSel.disabled = false;
+    projSel.value = projSel.value || "";
+  } else if(isDeptHead(CU)){
+    // Dept Head: only their assigned projects — show a filtered dropdown
+    var dh = deptHeadInfo(CU);
+    var assignedProjects = dh ? dh.projects : [];
+    // Rebuild dropdown to show only assigned projects
+    projSel.innerHTML = '<option value="">— Select Project —</option>';
+    assignedProjects.forEach(function(p){
+      var o = document.createElement("option");
+      o.value = p; o.textContent = p;
+      projSel.appendChild(o);
+    });
+    // Auto-select if only one project
+    if(assignedProjects.length === 1){
+      projSel.value = assignedProjects[0];
+      projSel.disabled = true;
+      onTmProjectChange();
+    } else {
+      projSel.disabled = false;
+    }
+  } else if(CU.role==="Project Manager" && CU.project){
+    projSel.value = CU.project;
+    projSel.disabled = true;
+    onTmProjectChange();
+  } else if(CU.role==="Team Leader" && CU.project){
+    projSel.value = CU.project;
+    projSel.disabled = true;
+    onTmProjectChange();
+  }
+}
+
+function onTmStaffChange(){
+  const proj  = document.getElementById("tm-project").value;
+  const payno = document.getElementById("tm-staff").value;
+  if(!payno) return;
+  const all = getAllStaff();
+  const s = (all[proj]||[]).find(x=>x.payno===payno);
+  if(!s) return;
+  document.getElementById("tm-payno").textContent=s.payno;
+  document.getElementById("tm-role").textContent=s.role;
+  loadTmKPIs(proj, s);
+}
+
+function loadTmKPIs(proj, staff){
+  const kpis=normKPI((KPI[proj]||{})[staff.role]||(KPI[proj]||{})["Merchandiser"]||[]);
+  tmState={proj, staff, kpis, scores:kpis.map(()=>0), comments:kpis.map(()=>"")};
+  document.getElementById("tm-kpi-title").textContent=`${staff.role} — ${staff.name}`;
+  renderTmTable();
+
+  // Pre-load saved supervisor data
+  const period=document.getElementById("tm-period").value;
+  const existing=getRecs().find(r=>r.payno===staff.payno&&r.project===proj&&r.period===period);
+  if(existing){
+    (existing.supvScores||[]).forEach((v,i)=>{ if(v>0) setTmScore(i,v); });
+    (existing.supvComments||[]).forEach((c,i)=>{ tmState.comments[i]=c; const ta=document.getElementById(`tn-${i}`); if(ta) ta.value=c; });
+    // Also show self scores in reference column
+    (existing.selfScores||[]).forEach((v,i)=>{
+      const el=document.getElementById(`tm-self-ref-${i}`);
+      if(el) el.textContent=v>0?scorePct(v)+"%":"—";
+    });
+    document.getElementById("tm-txt-strengths").value=existing.supvStrengths||"";
+    document.getElementById("tm-txt-improve").value=existing.supvImprove||"";
+    document.getElementById("tm-txt-actions").value=existing.supvActions||"";
+    document.getElementById("tm-txt-remarks").value=existing.supvRemarks||"";
+  }
+
+  document.getElementById("tm-kpi-area").classList.remove("hidden");
+  document.getElementById("tm-score-hero").classList.remove("hidden");
+
+  // Supervisor field
+  const supvField = document.getElementById("tm-supv");
+  if(!CU.isAdmin && CU.role==="Team Leader"){
+    // TL: locked to their PM
+    const pm = PROJECT_PM[proj];
+    supvField.value = pm && pm.name ? pm.name : CU.project + " Project Manager";
+    supvField.readOnly = true;
+    supvField.style.background = "var(--grey)";
+    supvField.style.color = "var(--muted)";
+    supvField.style.cursor = "not-allowed";
+  } else if(isDeptHead(CU)){
+    // Dept Head: their own name auto-fills, locked
+    const dh = deptHeadInfo(CU);
+    supvField.value = CU.name + (dh ? " — " + dh.title : "");
+    supvField.readOnly = true;
+    supvField.style.background = "var(--grey)";
+    supvField.style.color = "var(--muted)";
+    supvField.style.cursor = "not-allowed";
+  } else {
+    supvField.value = CU.isAdmin ? "Administrator" : CU.name;
+    supvField.readOnly = false;
+    supvField.style.background = "";
+    supvField.style.color = "";
+    supvField.style.cursor = "";
+  }
+  updateTmTotals();
+}
+
+function renderTmTable(){
+  const tbody=document.getElementById("tm-kpi-tbody");
+  tbody.innerHTML="";
+  tmState.kpis.forEach((kpi,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td style="text-align:center;color:var(--muted);font-weight:600;font-size:11px">${i+1}</td>
+      <td class="kpi-n">${kpi.name}</td>
+      <td class="wt-c">${(kpi.weight*100).toFixed(0)}%</td>
+      <td>
+        <div class="pb-wrap">
+          <div class="pb-row" id="vpb-${i}">
+            ${[1,2,3,4,5].map(v=>`<button class="pb" data-v="${v}" onclick="setTmScore(${i},${v})" title="${v*20}%">${v}</button>`).join("")}
+          </div>
+          <div class="pv vv" id="vpv-${i}">—</div>
+          <div class="prog"><div class="prog-fill pf-v" id="vprog-${i}" style="width:0%"></div></div>
+        </div>
+      </td>
+      <td class="wt-c"><span class="wp wp-v" id="vpct-${i}">—</span></td>
+      <td class="wt-c"><span class="wp wp-v" id="vwtd-${i}">—</span></td>
+      <td class="wt-c" style="font-size:11px;color:var(--self)" id="tm-self-ref-${i}">—</td>
+      <td><textarea class="ni" id="tn-${i}" placeholder="Notes…" oninput="tmState.comments[${i}]=this.value"></textarea></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function setTmScore(idx,val){
+  tmState.scores[idx]=val;
+  const pct=scorePct(val);
+  document.querySelectorAll(`#vpb-${idx} .pb`).forEach(b=>{
+    b.classList.remove("supv-on");
+    if(parseInt(b.dataset.v)<=val) b.classList.add("supv-on");
+  });
+  document.getElementById(`vpv-${idx}`).textContent=pct+"%";
+  document.getElementById(`vprog-${idx}`).style.width=pct+"%";
+  document.getElementById(`vpct-${idx}`).textContent=pct+"%";
+  const wtd=pct*tmState.kpis[idx].weight;
+  document.getElementById(`vwtd-${idx}`).textContent=wtd.toFixed(1)+"%";
+  updateTmTotals();
+}
+
+function updateTmTotals(){
+  const total=tmState.kpis.reduce((s,k,i)=>s+scorePct(tmState.scores[i])*k.weight,0);
+  document.getElementById("tm-total-val").textContent=total.toFixed(1)+"%";
+  document.getElementById("tm-sh-pct").textContent=total.toFixed(1)+"%";
+  document.getElementById("tm-sh-wtd").textContent=total.toFixed(1)+"%";
+  const rl=ratingLabel(total), rc=ratingClass(total);
+  document.getElementById("tm-sh-grade").textContent=rl;
+  document.getElementById("tm-sh-badge").innerHTML=`<span class="rb ${rc}">${rl}</span>`;
+  document.getElementById("tm-sh-rat").innerHTML=`<span class="rb ${rc}">${rl}</span>`;
+}
+
+function saveTeamAppraisal(){
+  if(!tmState.staff){ showToast("Select a staff member first.","warn"); return; }
+
+  // Validate all supervisor KPI scores entered
+  const unscored = tmState.scores.filter(s=>s===0).length;
+  if(unscored > 0){ showToast(`Please score all KPIs — ${unscored} still unrated.`,"warn"); return; }
+
+  // Validate all supervisor narrative fields are filled
+  const strengths = document.getElementById("tm-txt-strengths").value.trim();
+  const improve   = document.getElementById("tm-txt-improve").value.trim();
+  const actions   = document.getElementById("tm-txt-actions").value.trim();
+  const remarks   = document.getElementById("tm-txt-remarks").value.trim();
+  if(!strengths){ showToast("Please fill in Key Strengths Observed before submitting.","warn"); document.getElementById("tm-txt-strengths").focus(); return; }
+  if(!improve){   showToast("Please fill in Areas for Improvement before submitting.","warn");   document.getElementById("tm-txt-improve").focus();   return; }
+  if(!actions){   showToast("Please fill in Agreed Development Actions before submitting.","warn"); document.getElementById("tm-txt-actions").focus(); return; }
+  if(!remarks){   showToast("Please fill in Additional Remarks before submitting.","warn");       document.getElementById("tm-txt-remarks").focus();   return; }
+
+  const period=document.getElementById("tm-period").value;
+
+  // Block duplicate quarterly submission for the same staff member
+  const existing = getRecs().find(r=>r.payno===tmState.staff.payno && r.project===tmState.proj && r.period===period && r.totalSupvPct);
+  if(existing){
+    if(!confirm(`A supervisor appraisal for ${tmState.staff.name} in ${period} already exists. Overwrite it?`)) return;
+  }
+
+  const total=tmState.kpis.reduce((s,k,i)=>s+scorePct(tmState.scores[i])*k.weight,0);
+  const rec={
+    payno:tmState.staff.payno, name:tmState.staff.name,
+    role:tmState.staff.role, project:tmState.proj, period,
+    supervisor: document.getElementById("tm-supv").value,
+    supvScores:[...tmState.scores],
+    supvComments:[...tmState.comments],
+    supvStrengths:strengths,
+    supvImprove:  improve,
+    supvActions:  actions,
+    supvRemarks:  remarks,
+    totalSupvPct:total,
+    rating:ratingLabel(total),
+    source:CU.payno,
+  };
+  upsertRec(rec);
+  showToast(`✓ Supervisor score saved for ${tmState.staff.name}`,"ok");
+}
+
+function clearTeamForm(){
+  document.getElementById("tm-project").value="";
+  document.getElementById("tm-staff").innerHTML='<option value="">— Select Project First —</option>';
+  document.getElementById("tm-staff").disabled=true;
+  document.getElementById("tm-payno").textContent="—";
+  document.getElementById("tm-role").textContent="—";
+  document.getElementById("tm-kpi-area").classList.add("hidden");
+  document.getElementById("tm-score-hero").classList.add("hidden");
+  ["tm-txt-strengths","tm-txt-improve","tm-txt-actions","tm-txt-remarks"].forEach(id=>document.getElementById(id).value="");
+  tmState={proj:null,staff:null,kpis:[],scores:[],comments:[]};
+}
+
+// ════════════════════════════════════════════════════════
+// DASHBOARD
+// ════════════════════════════════════════════════════════
+function canViewDash(){
+  if(!CU) return false;
+  return CU.isAdmin || CU.role==="Team Leader" || CU.role==="Project Manager" || isDeptHead(CU);
+}
+
+function renderDash(){
+  if(!canViewDash()){
+    document.getElementById("dash-deny").classList.remove("hidden");
+    document.getElementById("dash-content").classList.add("hidden");
+    return;
+  }
+  document.getElementById("dash-deny").classList.add("hidden");
+  document.getElementById("dash-content").classList.remove("hidden");
+
+  // Show filter bar: full for admin, period+role only for Dept Heads, hidden for TL/PM
+  var filterBar = document.getElementById("dash-filter-bar");
+  if(CU.isAdmin){
+    filterBar.style.display = "flex";
+  } else if(isDeptHead(CU)){
+    // Show period filter only for Dept Heads (not project filter — they see their projects only)
+    filterBar.style.display = "flex";
+    var fProj = document.getElementById("flt-proj");
+    if(fProj) fProj.style.display = "none";
+  } else {
+    filterBar.style.display = "none";
+  }
+
+  let recs = getRecs();
+
+  // Enforce project scope at data level — cannot be overridden by filter dropdown
+  if(!CU.isAdmin){
+    if(isDeptHead(CU)){
+      // Dept Head sees ALL roles across their assigned projects
+      var dhInfo = deptHeadInfo(CU);
+      var dhProjects = dhInfo ? dhInfo.projects : [];
+      recs = recs.filter(r=>dhProjects.includes(r.project));
+    } else if(CU.role==="Team Leader"){
+      const frontline=["Merchandiser","Order Booker","TDR","Promoter","Data Analyst"];
+      recs=recs.filter(r=>frontline.includes(r.role));
+      recs=recs.filter(r=>r.project===CU.project);
+    } else if(CU.role==="Project Manager"){
+      recs=recs.filter(r=>r.project===CU.project);
+    }
+  }
+
+  const search=document.getElementById("flt-search").value.toLowerCase();
+  // Only use proj/period filters for admin; non-admins are already scoped above
+  const proj=CU.isAdmin ? document.getElementById("flt-proj").value : "";
+  const role=document.getElementById("flt-role").value;
+  const status=document.getElementById("flt-status").value;
+  const period=CU.isAdmin ? document.getElementById("flt-period").value : "";
+  const filtered=recs.filter(r=>{
+    if(search&&!r.name.toLowerCase().includes(search)) return false;
+    if(proj&&r.project!==proj) return false;
+    if(role&&r.role!==role) return false;
+    if(period&&r.period!==period) return false;
+    if(status==="complete"&&(!r.totalSelfPct||!r.totalSupvPct)) return false;
+    if(status==="self-only"&&(r.totalSupvPct||!r.totalSelfPct)) return false;
+    if(status==="supv-only"&&(!r.totalSupvPct||r.totalSelfPct)) return false;
+    return true;
+  });
+
+  document.getElementById("ds-total").textContent=recs.length;
+  if(recs.length){
+    const supvRecs=recs.filter(r=>r.totalSupvPct);
+    if(supvRecs.length){
+      const av=supvRecs.reduce((s,r)=>s+(r.totalSupvPct||0),0)/supvRecs.length;
+      document.getElementById("ds-avg").textContent=av.toFixed(1)+"%";
+      const top=Math.max(...supvRecs.map(r=>r.totalSupvPct||0));
+      document.getElementById("ds-top").textContent=top.toFixed(1)+"%";
+    }
+    const supvRecs2=recs.filter(r=>r.totalSupvPct);
+    document.getElementById("ds-below").textContent=supvRecs2.filter(r=>(r.totalSupvPct||0)<60).length;
+  }
+  // Populate quarter comparison cards and trends (admin only)
+  if(CU.isAdmin){
+    renderQuarterCards(recs);
+    renderTrends(recs);
+  }
+
+  const tbody=document.getElementById("dash-tbody");
+  tbody.innerHTML="";
+  if(!filtered.length){ document.getElementById("dash-empty").classList.remove("hidden"); return; }
+  document.getElementById("dash-empty").classList.add("hidden");
+  filtered.sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||"")).forEach(r=>{
+    const pjc=r.project==="MOVIT"?"pjb-m":"pjb-p";
+    const sp=r.totalSupvPct; const se=r.totalSelfPct;
+    const hasSupv=sp!=null&&sp>0; const hasSelf=se!=null&&se>0;
+    const statusBadge=hasSupv&&hasSelf?'<span class="rb r5">Complete</span>':hasSupv?'<span class="rb r4">Supv only</span>':hasSelf?'<span class="rb r3">Self only</span>':'<span class="rb r1">Pending</span>';
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td style="font-weight:500">${esc(r.name)}</td>
+      <td><span class="pjb ${pjc}">${esc(r.project)}</span></td>
+      <td>${esc(r.role)}</td>
+      <td>${esc(r.period)||"—"}</td>
+      <td style="text-align:center;color:var(--self);font-weight:700">${hasSelf?se.toFixed(1)+"%":"—"}</td>
+      <td style="text-align:center;color:var(--supv);font-weight:700">${hasSupv?sp.toFixed(1)+"%":"—"}</td>
+      <td>${hasSupv?`<span class="rb ${ratingClass(sp)}">${ratingLabel(sp)}</span>`:"—"}</td>
+      <td>${statusBadge}</td>
+      <td>
+        <button class="btn btn-outline btn-sm" onclick="loadTmRecord('${r.payno}','${r.project}','${r.period}')">Open</button>
+        <button class="btn btn-danger btn-sm" style="margin-left:3px" onclick="deleteRec('${r.payno}','${r.project}','${r.period}')">Del</button>
+      </td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function loadTmRecord(payno,proj,period){
+  if(!canViewDash()) return;
+  showSec("team");
+  document.getElementById("tm-project").value=proj;
+  onTmProjectChange();
+  setTimeout(()=>{
+    document.getElementById("tm-staff").value=payno;
+    document.getElementById("tm-period").value=period;
+    onTmStaffChange();
+  },100);
+}
+
+function deleteRec(payno,proj,period){
+  if(!confirm("Delete this appraisal record?")) return;
+  setRecs(getRecs().filter(r=>!(r.payno===payno&&r.project===proj&&r.period===period)));
+  renderDash();
+  showToast("Record deleted.");
+}
+
+function clearAll(){
+  if(!confirm("Delete ALL saved appraisal records? This cannot be undone.")) return;
+  lsRemove("tt_kpi_v3");
+  renderDash();
+  showToast("All records cleared.","warn");
+}
+
+// ════════════════════════════════════════════════════════
+// STAFF MANAGEMENT
+// ════════════════════════════════════════════════════════
+function renderStaffMgt(){
+  const projSel = document.getElementById("smt-proj");
+  const addProjSel = document.getElementById("add-proj");
+  if(CU.isAdmin){
+    projSel.disabled = false;
+    addProjSel.disabled = false;
+  } else if(isDeptHead(CU)){
+    // Dept Head: rebuild dropdowns to show only their assigned projects
+    var dh = deptHeadInfo(CU);
+    var dhProjs = dh ? dh.projects : [];
+    [projSel, addProjSel].forEach(function(sel){
+      sel.innerHTML = "";
+      dhProjs.forEach(function(p){
+        var o = document.createElement("option"); o.value=p; o.textContent=p; sel.appendChild(o);
+      });
+      sel.disabled = dhProjs.length <= 1;
+    });
+  } else if(CU.project){
+    projSel.value = CU.project; projSel.disabled = true;
+    addProjSel.value = CU.project; addProjSel.disabled = true;
+  }
+  const proj = projSel.value;
+  const all=getAllStaff();
+  let list=(all[proj]||[]).sort((a,b)=>a.name.localeCompare(b.name));
+  // Team Leaders only see frontline staff
+  if(!CU.isAdmin && !isDeptHead(CU) && CU.role==="Team Leader"){
+    const frontline=["Merchandiser","Order Booker","TDR","Promoter","Data Analyst"];
+    list = list.filter(s=>frontline.includes(s.role));
+  }
+  document.getElementById("smt-count").textContent=`${list.length} staff members`;
+  const tbody=document.getElementById("smt-tbody");
+  tbody.innerHTML="";
+  list.forEach(s=>{
+    const canDel=!s._seed;
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td style="font-family:monospace;font-size:11px;color:var(--muted)">${esc(s.payno)}</td>
+      <td style="font-weight:500">${esc(s.name)}</td>
+      <td><span class="rp ${s.role==="Team Leader"?"rp-tl":s.role==="Project Manager"?"rp-pm":"rp-staff"}">${s.role}</span></td>
+      <td>${canDel?`<button class="btn btn-danger btn-sm" onclick="removeStaff('${proj}','${s.payno}')">Remove</button>`:'<span style="font-size:10px;color:var(--muted)">Built-in</span>'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+
+function addStaff(){
+  var payno=document.getElementById("add-payno").value.trim().replace(/<[^>]*>/g,'').substring(0,20);
+  var name=document.getElementById("add-name").value.trim().replace(/<[^>]*>/g,'').substring(0,80);
+  var proj=document.getElementById("add-proj").value;
+  var role=document.getElementById("add-role").value;
+  if(!payno||!name){ showToast("Payroll No and Name are required.","warn"); return; }
+  if(!/^[A-Za-z0-9\-_\/\s]+$/.test(payno)){ showToast("Payroll No contains invalid characters.","warn"); return; }
+  const all=getAllStaff();
+  for(const p of Object.keys(all)){
+    if((all[p]||[]).some(s=>s.payno.toLowerCase()===payno.toLowerCase())){
+      showToast(`Payroll No ${payno} already exists.`,"warn"); return;
+    }
+  }
+  const extra=safeJSON(lsGet("tt_extra_staff"),{});
+  if(!extra[proj]) extra[proj]=[];
+  extra[proj].push({payno,name,role});
+  lsSet("tt_extra_staff",JSON.stringify(extra));
+  document.getElementById("add-payno").value="";
+  document.getElementById("add-name").value="";
+  renderStaffMgt();
+  showToast(`✓ ${name} added to ${proj}`,"ok");
+}
+
+function removeStaff(proj,payno){
+  if(!confirm("Remove this staff member?")) return;
+  const extra=safeJSON(lsGet("tt_extra_staff"),{});
+  extra[proj]=(extra[proj]||[]).filter(s=>s.payno!==payno);
+  lsSet("tt_extra_staff",JSON.stringify(extra));
+  renderStaffMgt();
+  showToast("Staff member removed.");
+}
+
+// ════════════════════════════════════════════════════════
+// DATA SYNC — EXPORT / IMPORT
+// ════════════════════════════════════════════════════════
+function exportMyData(){
+  const recs=getRecs();
+  let myRecs;
+  if(CU.isAdmin){
+    myRecs=recs; // admin exports all
+  } else {
+    // Each user exports records they own (source = their payno) or were scored by them
+    myRecs=recs.filter(r=>r.source===CU.payno||r.payno===CU.payno);
+  }
+  if(!myRecs.length){ showToast("No data to export yet.","warn"); return; }
+
+  const pkg={
+    exportedBy:CU.payno,
+    exportedByName:CU.name,
+    exportedAt:new Date().toISOString(),
+    records:myRecs,
+    extraStaff: CU.isAdmin ? safeJSON(lsGet("tt_extra_staff"),{}) : {}
+  };
+  const blob=new Blob([JSON.stringify(pkg,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a"); a.href=url;
+  a.download=`TT_KPI_${CU.payno}_${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(url);
+  showToast(`Exported ${myRecs.length} record(s)`,"ok");
+}
+
+function updateExportCount(){
+  const recs=getRecs();
+  const myRecs=CU.isAdmin?recs:recs.filter(r=>r.source===CU.payno||r.payno===CU.payno);
+  const countEl=document.getElementById("export-count");
+  if(countEl) countEl.textContent=`${myRecs.length} record(s) will be exported`;
+
+  // Show the right sync panel based on role
+  const canImport = CU.isAdmin;
+  document.getElementById("sync-export-only").classList.toggle("hidden", canImport);
+  document.getElementById("sync-admin-only").classList.toggle("hidden", !canImport);
+}
+
+function importDataFiles(){
+  const files=Array.from(document.getElementById("import-file").files);
+  if(!files.length) return;
+  let imported=0, skipped=0;
+  let pending=files.length;
+
+  files.forEach(file=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      try {
+        const pkg=JSON.parse(e.target.result);
+        const records=pkg.records||[];
+        records.forEach(rec=>{
+          var clean = sanitiseRec(rec);
+          if(clean){ upsertRec(clean); imported++; }
+          else { skipped++; }
+        });
+        // Merge extra staff if present
+        const extra=pkg.extraStaff||{};
+        if(Object.keys(extra).length){
+          const current=safeJSON(lsGet("tt_extra_staff"),{});
+          for(const proj of Object.keys(extra)){
+            if(!current[proj]) current[proj]=[];
+            (extra[proj]||[]).forEach(ns=>{
+              if(ns&&ns.payno&&ns.name&&typeof ns.payno==='string'&&typeof ns.name==='string'){
+                var cleanNs={payno:String(ns.payno).substring(0,20),name:String(ns.name).replace(/<[^>]*>/g,'').substring(0,80),role:String(ns.role||'').substring(0,40)};
+                if(!current[proj].some(es=>es.payno===cleanNs.payno)) current[proj].push(cleanNs);
+              }
+            });
+          }
+          lsSet("tt_extra_staff",JSON.stringify(current));
+        }
+      } catch(err){ skipped++; }
+      pending--;
+      if(pending===0){
+        document.getElementById("import-result").textContent=`✓ Imported ${imported} record(s) from ${files.length} file(s).${skipped?" "+skipped+" skipped.":""}`;
+        showToast(`Imported ${imported} records`,"ok");
+        renderDash();
+      }
+    };
+    reader.readAsText(file);
+  });
+  document.getElementById("import-file").value="";
+}
+
+// ════════════════════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
+// QUARTER TRACKING
+// ════════════════════════════════════════════════════════
+var QUARTERS = ["Q1 2026 (Jan–Mar)","Q2 2026 (Apr–Jun)","Q3 2026 (Jul–Sep)","Q4 2026 (Oct–Dec)"];
+var QUARTER_SHORT = {"Q1 2026 (Jan–Mar)":"Q1 2026","Q2 2026 (Apr–Jun)":"Q2 2026","Q3 2026 (Jul–Sep)":"Q3 2026","Q4 2026 (Oct–Dec)":"Q4 2026"};
+
+function showView(view){
+  try{
+    var tableEl = document.getElementById("dash-tbody") ? document.getElementById("dash-tbody").closest("table") : null;
+    var trendsEl = document.getElementById("trends-section");
+    var qCards   = document.getElementById("quarter-cards");
+    var btnTable  = document.getElementById("btn-view-table");
+    var btnTrends = document.getElementById("btn-view-trends");
+    if(view==="trends"){
+      if(tableEl) tableEl.parentElement.style.display="none";
+      if(trendsEl) trendsEl.classList.remove("hidden");
+      if(qCards)   qCards.classList.remove("hidden");
+      if(btnTable)  btnTable.className="btn btn-outline btn-sm";
+      if(btnTrends) btnTrends.className="btn btn-primary btn-sm";
+    } else {
+      if(tableEl) tableEl.parentElement.style.display="";
+      if(trendsEl) trendsEl.classList.add("hidden");
+      if(qCards)   qCards.classList.add("hidden");
+      if(btnTable)  btnTable.className="btn btn-primary btn-sm";
+      if(btnTrends) btnTrends.className="btn btn-outline btn-sm";
+    }
+  }catch(e){ console.error("showView error:",e); }
+}
+
+function renderQuarterCards(allRecs){
+  try{
+    var grid = document.getElementById("quarter-cards-grid");
+    var cardsEl = document.getElementById("quarter-cards");
+    if(!grid) return;
+    // Only show if we have data in more than one quarter
+    var quartersPresent = QUARTERS.filter(function(q){ return allRecs.some(function(r){ return r.period===q&&r.totalSupvPct; }); });
+    if(quartersPresent.length < 1){ if(cardsEl) cardsEl.classList.add("hidden"); return; }
+    if(cardsEl) cardsEl.classList.remove("hidden");
+    grid.innerHTML="";
+    QUARTERS.forEach(function(q){
+      var qRecs = allRecs.filter(function(r){ return r.period===q&&r.totalSupvPct; });
+      var shortQ = QUARTER_SHORT[q]||q;
+      var card = document.createElement("div");
+      card.style.cssText="background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;";
+      if(qRecs.length===0){
+        card.style.opacity="0.45";
+        card.innerHTML='<div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">'+shortQ+'</div><div style="font-size:22px;font-weight:700;color:var(--muted)">—</div><div style="font-size:11px;color:var(--muted);margin-top:3px">No data</div>';
+      } else {
+        var avg = qRecs.reduce(function(s,r){ return s+(r.totalSupvPct||0); },0)/qRecs.length;
+        var top = Math.max.apply(null, qRecs.map(function(r){ return r.totalSupvPct||0; }));
+        var below = qRecs.filter(function(r){ return (r.totalSupvPct||0)<60; }).length;
+        var col = avg>=70?"var(--green)":avg>=55?"var(--amber)":"var(--red)";
+        card.innerHTML=
+          '<div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">'+shortQ+'</div>'+
+          '<div style="font-size:26px;font-weight:700;color:'+col+'">'+avg.toFixed(1)+'%</div>'+
+          '<div style="font-size:11px;color:var(--muted);margin-top:4px">Avg · '+qRecs.length+' appraised</div>'+
+          '<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">'+
+            '<span style="font-size:10px;background:var(--green-lt);color:var(--green);padding:2px 7px;border-radius:12px;font-weight:600">Top: '+top.toFixed(0)+'%</span>'+
+            (below>0?'<span style="font-size:10px;background:var(--red-lt);color:var(--red);padding:2px 7px;border-radius:12px;font-weight:600">Below 60%: '+below+'</span>':'')+
+          '</div>';
+      }
+      grid.appendChild(card);
+    });
+  }catch(e){ console.error("renderQuarterCards error:",e); }
+}
+
+function renderTrends(allRecs){
+  try{
+    var thead = document.getElementById("trends-thead");
+    var tbody = document.getElementById("trends-tbody");
+    var empty = document.getElementById("trends-empty");
+    if(!thead||!tbody) return;
+
+    // Find which quarters have data
+    var quartersWithData = QUARTERS.filter(function(q){ return allRecs.some(function(r){ return r.period===q&&r.totalSupvPct; }); });
+    if(quartersWithData.length===0){ if(empty) empty.classList.remove("hidden"); tbody.innerHTML=""; thead.innerHTML=""; return; }
+    if(empty) empty.classList.add("hidden");
+
+    // Build header
+    var hRow = "<tr><th style='text-align:left;min-width:140px'>Staff Name</th><th>Project</th><th>Role</th>";
+    quartersWithData.forEach(function(q){ hRow += "<th style='text-align:center;background:var(--blue-lt);color:var(--navy)'>"+(QUARTER_SHORT[q]||q)+"</th>"; });
+    if(quartersWithData.length>1) hRow += "<th style='text-align:center;background:var(--green-lt);color:var(--green)'>Trend</th>";
+    hRow += "</tr>";
+    thead.innerHTML = hRow;
+
+    // Build per-staff rows — group by payno+project
+    var staffMap = {};
+    allRecs.forEach(function(r){
+      if(!r.totalSupvPct) return;
+      var key = r.payno+"|"+r.project;
+      if(!staffMap[key]) staffMap[key]={name:r.name,project:r.project,role:r.role,quarters:{}};
+      staffMap[key].quarters[r.period] = r.totalSupvPct;
+    });
+
+    var rows = Object.values(staffMap).sort(function(a,b){ return a.name.localeCompare(b.name); });
+    if(rows.length===0){ if(empty) empty.classList.remove("hidden"); tbody.innerHTML=""; return; }
+
+    // Apply current filters
+    var fSearch = document.getElementById("flt-search") ? document.getElementById("flt-search").value.toLowerCase() : "";
+    var fProj   = document.getElementById("flt-proj")   ? document.getElementById("flt-proj").value   : "";
+    var fRole   = document.getElementById("flt-role")   ? document.getElementById("flt-role").value   : "";
+    rows = rows.filter(function(r){
+      if(fSearch && !r.name.toLowerCase().includes(fSearch)) return false;
+      if(fProj   && r.project!==fProj) return false;
+      if(fRole   && r.role!==fRole)    return false;
+      return true;
+    });
+
+    tbody.innerHTML="";
+    rows.forEach(function(staff){
+      var projBadge = staff.project==="MOVIT"?"pjb-m":"pjb-p";
+      var tr = document.createElement("tr");
+      var cells = "<td style='font-weight:500'>"+esc(staff.name)+"</td>"+
+                  "<td><span class='pjb "+projBadge+"'>"+esc(staff.project)+"</span></td>"+
+                  "<td>"+esc(staff.role)+"</td>";
+
+      var scores = quartersWithData.map(function(q){ return staff.quarters[q]||null; });
+      scores.forEach(function(sc, idx){
+        if(sc===null){
+          cells += "<td style='text-align:center;color:var(--muted);font-size:12px'>—</td>";
+        } else {
+          var col = sc>=70?"var(--green)":sc>=55?"var(--amber)":"var(--red)";
+          var rc  = sc>=85?"r5":sc>=70?"r4":sc>=55?"r3":sc>=40?"r2":"r1";
+          cells += "<td style='text-align:center'><span class='rb "+rc+"'>"+sc.toFixed(1)+"%</span></td>";
+        }
+      });
+
+      // Trend arrow — compare first and last available scores
+      if(quartersWithData.length>1){
+        var validScores = scores.filter(function(s){ return s!==null; });
+        if(validScores.length>=2){
+          var diff = validScores[validScores.length-1] - validScores[0];
+          var arrow = diff>2?"<span style='color:var(--green);font-weight:700'>▲ "+diff.toFixed(1)+"%</span>":
+                      diff<-2?"<span style='color:var(--red);font-weight:700'>▼ "+Math.abs(diff).toFixed(1)+"%</span>":
+                               "<span style='color:var(--muted);font-weight:600'>— Stable</span>";
+          cells += "<td style='text-align:center'>"+arrow+"</td>";
+        } else {
+          cells += "<td style='text-align:center;color:var(--muted);font-size:12px'>—</td>";
+        }
+      }
+
+      tr.innerHTML = cells;
+      tbody.appendChild(tr);
+    });
+  }catch(e){ console.error("renderTrends error:",e); }
+}
+
+function showToast(msg,type=""){
+  const t=document.getElementById("toast");
+  t.textContent=msg; t.className="toast"+(type?" "+type:"");
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),3200);
+}
+</script>
+
+<script>
+// ── OFFLINE / ONLINE indicator ───────────────────────────────────
+function updateOnlineStatus(){
+  var banner = document.getElementById('offline-banner');
+  if(!banner) return;
+  banner.style.display = navigator.onLine ? 'none' : 'flex';
+}
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+document.addEventListener('DOMContentLoaded', function(){ updateOnlineStatus(); });
+</script>
+
+
+</body>
+</html>
